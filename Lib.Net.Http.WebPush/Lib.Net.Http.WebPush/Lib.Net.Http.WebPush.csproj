@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Lib.Net.Http.WebPush is a library which provides a Web Push Protocol based client for Push Service.</Description>
+    <Copyright>Copyright © 2018 Tomasz Pęczek</Copyright>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>Tomasz Pęczek</Authors>
+    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <AssemblyTitle>Lib.Net.Http.WebPush</AssemblyTitle>
+    <AssemblyName>Lib.Net.Http.WebPush</AssemblyName>
+    <PackageId>Lib.Net.Http.WebPush</PackageId>
+    <PackageTags>push;notifications;webpush;vapid</PackageTags>
+    <PackageProjectUrl>https://github.com/tpeczek/Lib.Net.Http.WebPush</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/tpeczek/Lib.Net.Http.WebPush/blob/master/LICENSE.md</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/tpeczek/Lib.Net.Http.WebPush</RepositoryUrl>
+    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+    <PackageReference Include="Lib.Net.Http.EncryptedContentEncoding" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <PackageReference Include="BouncyCastle" Version="1.8.1" />
+    <PackageReference Include="System.Net.Http" Version="4.3.1" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <PackageReference Include="BouncyCastle.CoreClr" Version="1.0.0" />
+  </ItemGroup>
+</Project>
