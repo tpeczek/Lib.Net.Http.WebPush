@@ -1,5 +1,19 @@
 # Lib.Net.Http.WebPush
+[![NuGet version](https://badge.fury.io/nu/Lib.Net.Http.WebPush.svg)](http://badge.fury.io/nu/Lib.Net.Http.WebPush)
+
 Lib.Net.Http.WebPush is a library which provides a [Web Push Protocol](https://tools.ietf.org/html/rfc8030) based client for Push Service. It provides support for [Voluntary Application Server Identification (VAPID) for Web Push](https://tools.ietf.org/html/rfc8292) and [Message Encryption for Web Push](https://tools.ietf.org/html/rfc8291).
+
+## Installation
+
+You can install [Lib.Net.Http.WebPush](https://www.nuget.org/packages/Lib.Net.Http.WebPush) from NuGet.
+
+```
+PM>  Install-Package Lib.Net.Http.WebPush
+```
+
+## Demos
+
+There is a demo project available [here](https://github.com/tpeczek/Demo.AspNetCore.PushNotifications).
 
 ## Donating
 
