@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Text;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Cryptography;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Signers;
@@ -42,16 +41,20 @@ namespace Lib.Net.Http.WebPush.Authentication
 
         #region Fields
         private const string URI_SCHEME_HTTPS = "https";
-        private const string AUDIENCE_CLAIM = "aud";
-        private const string EXPIRATION_CLAIM = "exp";
-        private const string SUBJECT_CLAIM = "sub";
-        private const char JWT_SEPARATOR = '.';
-
-        private const string P256ECDSA_PREFIX = "p256ecdsa=";
-        private const string VAPID_AUTHENTICATION_HEADER_VALUE_PARAMETER_FORMAT = "t={0}, k={1}";
 
         private const int DEFAULT_EXPIRATION = 43200;
         private const int MAXIMUM_EXPIRATION = 86400;
+
+        private const string JWT_HEADER = "{\"typ\":\"JWT\",\"alg\":\"ES256\"}";
+        private const string JWT_SEPARATOR = ".";
+        private const string JWT_BODY_AUDIENCE_PART = "{\"aud\":\"";
+        private const string JWT_BODY_EXPIRATION_PART = "\",\"exp\":";
+        private const string JWT_BODY_SUBJECT_PART = ",\"sub\":\"";
+        private const string JWT_BODY_WITH_SUBJECT_CLOSING = "\"}";
+        private const string JWT_BODY_WITHOUT_SUBJECT_CLOSING = "}";
+
+        private const string P256ECDSA_PREFIX = "p256ecdsa=";
+        private const string VAPID_AUTHENTICATION_HEADER_VALUE_PARAMETER_FORMAT = "t={0}, k={1}";
 
         private string _subject;
         private string _publicKey;
@@ -60,11 +63,7 @@ namespace Lib.Net.Http.WebPush.Authentication
         private int _expiration;
 
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
-        private static readonly Dictionary<string, string> _jwtHeader = new Dictionary<string, string>
-        {
-            { "typ", "JWT" },
-            { "alg", "ES256" }
-        };
+        private static readonly string _jwtHeaderSegment = UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JWT_HEADER));
         #endregion
 
         #region Properties
@@ -212,25 +211,28 @@ namespace Lib.Net.Http.WebPush.Authentication
                 throw new ArgumentException(nameof(audience), "Audience should be an absolute URL");
             }
 
-            Dictionary<string, object> jwtBody = GetJwtBody(audience);
+            string jwtBodySegment = GetJwtBodySegment(audience);
 
-            return GenerateJwtToken(_jwtHeader, jwtBody);
+            return GenerateJwtToken(jwtBodySegment);
         }
 
-        private Dictionary<string, object> GetJwtBody(string audience)
+        private string GetJwtBodySegment(string audience)
         {
-            Dictionary<string, object> jwtBody = new Dictionary<string, object>
-            {
-                { AUDIENCE_CLAIM, audience },
-                { EXPIRATION_CLAIM, GetAbsoluteExpiration(_expiration) }
-            };
+            StringBuilder jwtBodyBuilder = new StringBuilder();
+
+            jwtBodyBuilder.Append(JWT_BODY_AUDIENCE_PART).Append(audience)
+                .Append(JWT_BODY_EXPIRATION_PART).Append(GetAbsoluteExpiration(_expiration).ToString(CultureInfo.InvariantCulture));
 
             if (_subject != null)
             {
-                jwtBody.Add(SUBJECT_CLAIM, _subject);
+                jwtBodyBuilder.Append(JWT_BODY_SUBJECT_PART).Append(_subject).Append(JWT_BODY_WITH_SUBJECT_CLOSING);
+            }
+            else
+            {
+                jwtBodyBuilder.Append(JWT_BODY_WITHOUT_SUBJECT_CLOSING);
             }
 
-            return jwtBody;
+            return UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(jwtBodyBuilder.ToString()));
         }
 
         private static long GetAbsoluteExpiration(int expirationSeconds)
@@ -240,11 +242,9 @@ namespace Lib.Net.Http.WebPush.Authentication
             return (long)unixEpochOffset.TotalSeconds + expirationSeconds;
         }
 
-        private string GenerateJwtToken(Dictionary<string, string> jwtHeader, Dictionary<string, object> jwtBody)
+        private string GenerateJwtToken(string jwtBodySegment)
         {
-            string jwtInput = UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(jwtHeader)))
-                + JWT_SEPARATOR
-                + UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(jwtBody)));
+            string jwtInput = _jwtHeaderSegment + JWT_SEPARATOR + jwtBodySegment;
 
             byte[] jwtInputHash;
             using (var sha256Hasher = SHA256.Create())

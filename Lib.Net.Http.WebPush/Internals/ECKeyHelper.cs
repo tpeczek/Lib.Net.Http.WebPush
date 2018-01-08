@@ -12,17 +12,28 @@ namespace Lib.Net.Http.WebPush.Internals
 {
     internal static class ECKeyHelper
     {
+        private const string PRIVATE_DER_IDENTIFIER = "1.2.840.10045.3.1.7";
+        private const string PRIVATE_PEM_KEY_PREFIX = "-----BEGIN EC PRIVATE KEY-----\n";
+        private const string PRIVATE_PEM_KEY_SUFFIX = "\n-----END EC PRIVATE KEY----";
+
+        private const string PUBLIC_DER_IDENTIFIER = "1.2.840.10045.2.1";
+        private const string PUBLIC_PEM_KEY_PREFIX = "-----BEGIN PUBLIC KEY-----\n";
+        private const string PUBLIC_PEM_KEY_SUFFIX = "\n-----END PUBLIC KEY-----";
+
+        private const string P256_CURVE_NAME = "P-256";
+        private const string ECDH_ALGORITHM_NAME = "ECDH";
+
         internal static ECPrivateKeyParameters GetECPrivateKeyParameters(byte[] privateKey)
         {
             Asn1Object derSequence = new DerSequence(
                 new DerInteger(1),
                 new DerOctetString(privateKey),
-                new DerTaggedObject(0, new DerObjectIdentifier("1.2.840.10045.3.1.7"))
+                new DerTaggedObject(0, new DerObjectIdentifier(PRIVATE_DER_IDENTIFIER))
             );
 
-            string pemKey = "-----BEGIN EC PRIVATE KEY-----\n"
+            string pemKey = PRIVATE_PEM_KEY_PREFIX
                 + Convert.ToBase64String(derSequence.GetDerEncoded())
-                + "\n-----END EC PRIVATE KEY----";
+                + PRIVATE_PEM_KEY_SUFFIX;
 
             PemReader pemKeyReader = new PemReader(new StringReader(pemKey));
             AsymmetricCipherKeyPair keyPair = (AsymmetricCipherKeyPair)pemKeyReader.ReadObject();
@@ -33,13 +44,13 @@ namespace Lib.Net.Http.WebPush.Internals
         internal static ECPublicKeyParameters GetECPublicKeyParameters(byte[] publicKey)
         {
             Asn1Object derSequence = new DerSequence(
-                new DerSequence(new DerObjectIdentifier(@"1.2.840.10045.2.1"), new DerObjectIdentifier(@"1.2.840.10045.3.1.7")),
+                new DerSequence(new DerObjectIdentifier(PUBLIC_DER_IDENTIFIER), new DerObjectIdentifier(PRIVATE_DER_IDENTIFIER)),
                 new DerBitString(publicKey)
             );
 
-            string pemKey = "-----BEGIN PUBLIC KEY-----\n"
+            string pemKey = PUBLIC_PEM_KEY_PREFIX
                 + Convert.ToBase64String(derSequence.GetDerEncoded())
-                + "\n-----END PUBLIC KEY-----";
+                + PUBLIC_PEM_KEY_SUFFIX;
 
             PemReader pemKeyReader = new PemReader(new StringReader(pemKey));
             return (ECPublicKeyParameters)pemKeyReader.ReadObject();
@@ -47,10 +58,10 @@ namespace Lib.Net.Http.WebPush.Internals
 
         internal static AsymmetricCipherKeyPair GenerateAsymmetricCipherKeyPair()
         {
-            X9ECParameters ecParameters = NistNamedCurves.GetByName("P-256");
+            X9ECParameters ecParameters = NistNamedCurves.GetByName(P256_CURVE_NAME);
             ECDomainParameters ecDomainParameters = new ECDomainParameters(ecParameters.Curve, ecParameters.G, ecParameters.N, ecParameters.H, ecParameters.GetSeed());
 
-            IAsymmetricCipherKeyPairGenerator keyPairGenerator = GeneratorUtilities.GetKeyPairGenerator("ECDH");
+            IAsymmetricCipherKeyPairGenerator keyPairGenerator = GeneratorUtilities.GetKeyPairGenerator(ECDH_ALGORITHM_NAME);
             keyPairGenerator.Init(new ECKeyGenerationParameters(ecDomainParameters, new SecureRandom()));
 
             return keyPairGenerator.GenerateKeyPair();
