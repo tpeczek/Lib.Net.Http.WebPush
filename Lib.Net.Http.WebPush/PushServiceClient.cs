@@ -29,6 +29,7 @@ namespace Lib.Net.Http.WebPush
         private const string URGENCY_HEADER_NAME = "Urgency";
         private const string CRYPTO_KEY_HEADER_NAME = "Crypto-Key";
         private const string WEBPUSH_AUTHENTICATION_SCHEME = "WebPush";
+        private const string VAPID_AUTHENTICATION_SCHEME = "vapid";
 
         private const int DEFAULT_TIME_TO_LIVE = 2419200;
 
@@ -68,6 +69,11 @@ namespace Lib.Net.Http.WebPush
         /// Gets or sets the default authentication details.
         /// </summary>
         public VapidAuthentication DefaultAuthentication { get; set; }
+
+        /// <summary>
+        /// Gets or sets the default <see cref="VapidAuthenticationScheme"/> to be used.
+        /// </summary>
+        public VapidAuthenticationScheme DefaultAuthenticationScheme { get; set; } = VapidAuthenticationScheme.WebPush;
         #endregion
 
         #region Methods
@@ -79,7 +85,7 @@ namespace Lib.Net.Http.WebPush
         /// <returns>The task object representing the asynchronous operation.</returns>
         public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message)
         {
-            return RequestPushMessageDeliveryAsync(subscription, message, null, CancellationToken.None);
+            return RequestPushMessageDeliveryAsync(subscription, message, null, DefaultAuthenticationScheme, CancellationToken.None);
         }
 
         /// <summary>
@@ -91,7 +97,7 @@ namespace Lib.Net.Http.WebPush
         /// <returns>The task object representing the asynchronous operation.</returns>
         public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, CancellationToken cancellationToken)
         {
-            return RequestPushMessageDeliveryAsync(subscription, message, null, cancellationToken);
+            return RequestPushMessageDeliveryAsync(subscription, message, null, DefaultAuthenticationScheme, cancellationToken);
         }
 
         /// <summary>
@@ -103,7 +109,20 @@ namespace Lib.Net.Http.WebPush
         /// <returns>The task object representing the asynchronous operation.</returns>
         public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication)
         {
-            return RequestPushMessageDeliveryAsync(subscription, message, authentication, CancellationToken.None);
+            return RequestPushMessageDeliveryAsync(subscription, message, authentication, DefaultAuthenticationScheme, CancellationToken.None);
+        }
+
+        /// <summary>
+        /// Requests delivery of push message by push service as an asynchronous operation.
+        /// </summary>
+        /// <param name="subscription">The push service subscription.</param>
+        /// <param name="message">The push message.</param>
+        /// <param name="authentication">The authentication details.</param>
+        /// <param name="authenticationScheme">The <see cref="VapidAuthenticationScheme"/> to use.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)
+        {
+            return RequestPushMessageDeliveryAsync(subscription, message, authentication, authenticationScheme, CancellationToken.None);
         }
 
         /// <summary>
@@ -114,16 +133,30 @@ namespace Lib.Net.Http.WebPush
         /// <param name="authentication">The authentication details.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public async Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, CancellationToken cancellationToken)
+        public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, CancellationToken cancellationToken)
         {
-            HttpRequestMessage pushMessageDeliveryRequest = PreparePushMessageDeliveryRequest(subscription, message, authentication);
+            return RequestPushMessageDeliveryAsync(subscription, message, authentication, DefaultAuthenticationScheme, cancellationToken);
+        }
+
+        /// <summary>
+        /// Requests delivery of push message by push service as an asynchronous operation.
+        /// </summary>
+        /// <param name="subscription">The push service subscription.</param>
+        /// <param name="message">The push message.</param>
+        /// <param name="authentication">The authentication details.</param>
+        /// <param name="authenticationScheme">The <see cref="VapidAuthenticationScheme"/> to use.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public async Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme, CancellationToken cancellationToken)
+        {
+            HttpRequestMessage pushMessageDeliveryRequest = PreparePushMessageDeliveryRequest(subscription, message, authentication, authenticationScheme);
 
             HttpResponseMessage pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 
             HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequestResponse);
         }
 
-        private HttpRequestMessage PreparePushMessageDeliveryRequest(PushSubscription subscription, PushMessage message, VapidAuthentication authentication)
+        private HttpRequestMessage PreparePushMessageDeliveryRequest(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)
         {
             authentication = authentication ?? DefaultAuthentication;
             if (authentication == null)
@@ -138,21 +171,28 @@ namespace Lib.Net.Http.WebPush
                     { TTL_HEADER_NAME, (message.TimeToLive ?? DefaultTimeToLive).ToString(CultureInfo.InvariantCulture) }
                 }
             };
-            pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication);
+            pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication, authenticationScheme);
             pushMessageDeliveryRequest = SetContent(pushMessageDeliveryRequest, subscription, message);
 
             return pushMessageDeliveryRequest;
         }
 
-        private static HttpRequestMessage SetAuthentication(HttpRequestMessage pushMessageDeliveryRequest, PushSubscription subscription, VapidAuthentication authentication)
+        private static HttpRequestMessage SetAuthentication(HttpRequestMessage pushMessageDeliveryRequest, PushSubscription subscription, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)
         {
             Uri endpointUri = new Uri(subscription.Endpoint);
             string audience = endpointUri.Scheme + @"://" + endpointUri.Host;
 
-            VapidAuthentication.WebPushSchemeHeadersValues webPushSchemeHeadersValues = authentication.GetWebPushSchemeHeadersValues(audience);
+            if (authenticationScheme == VapidAuthenticationScheme.WebPush)
+            {
+                VapidAuthentication.WebPushSchemeHeadersValues webPushSchemeHeadersValues = authentication.GetWebPushSchemeHeadersValues(audience);
 
-            pushMessageDeliveryRequest.Headers.Authorization = new AuthenticationHeaderValue(WEBPUSH_AUTHENTICATION_SCHEME, webPushSchemeHeadersValues.AuthenticationHeaderValueParameter);
-            pushMessageDeliveryRequest.Headers.Add(CRYPTO_KEY_HEADER_NAME, webPushSchemeHeadersValues.CryptoKeyHeaderValue);
+                pushMessageDeliveryRequest.Headers.Authorization = new AuthenticationHeaderValue(WEBPUSH_AUTHENTICATION_SCHEME, webPushSchemeHeadersValues.AuthenticationHeaderValueParameter);
+                pushMessageDeliveryRequest.Headers.Add(CRYPTO_KEY_HEADER_NAME, webPushSchemeHeadersValues.CryptoKeyHeaderValue);
+            }
+            else
+            {
+                pushMessageDeliveryRequest.Headers.Authorization = new AuthenticationHeaderValue(VAPID_AUTHENTICATION_SCHEME, authentication.GetVapidSchemeAuthenticationHeaderValueParameter(audience));
+            }
 
             return pushMessageDeliveryRequest;
         }
