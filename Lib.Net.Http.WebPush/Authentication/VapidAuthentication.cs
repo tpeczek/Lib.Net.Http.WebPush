@@ -60,7 +60,7 @@ namespace Lib.Net.Http.WebPush.Authentication
         private string _publicKey;
         private string _privateKey;
         private ECPrivateKeyParameters _privateSigningKey;
-        private int _expiration;
+        private int _relativeExpiration;
 
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
         private static readonly string _jwtHeaderSegment = UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JWT_HEADER));
@@ -149,7 +149,7 @@ namespace Lib.Net.Http.WebPush.Authentication
         /// </summary>
         public int Expiration
         {
-            get { return _expiration; }
+            get { return _relativeExpiration; }
 
             set
             {
@@ -158,9 +158,14 @@ namespace Lib.Net.Http.WebPush.Authentication
                     throw new ArgumentOutOfRangeException(nameof(Expiration), "Expiration must be a number of seconds not longer than 24 hours");
                 }
 
-                _expiration = value;
+                _relativeExpiration = value;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the token cache.
+        /// </summary>
+        public IVapidTokenCache TokenCache { get; set; }
         #endregion
 
         #region Constructor
@@ -174,7 +179,7 @@ namespace Lib.Net.Http.WebPush.Authentication
             PublicKey = publicKey;
             PrivateKey = privateKey;
 
-            _expiration = DEFAULT_EXPIRATION;
+            _relativeExpiration = DEFAULT_EXPIRATION;
         }
         #endregion
 
@@ -211,40 +216,23 @@ namespace Lib.Net.Http.WebPush.Authentication
                 throw new ArgumentException(nameof(audience), "Audience should be an absolute URL");
             }
 
-            string jwtBodySegment = GetJwtBodySegment(audience);
+            string token = TokenCache?.Get(audience);
 
-            return GenerateJwtToken(jwtBodySegment);
-        }
-
-        private string GetJwtBodySegment(string audience)
-        {
-            StringBuilder jwtBodyBuilder = new StringBuilder();
-
-            jwtBodyBuilder.Append(JWT_BODY_AUDIENCE_PART).Append(audience)
-                .Append(JWT_BODY_EXPIRATION_PART).Append(GetAbsoluteExpiration(_expiration).ToString(CultureInfo.InvariantCulture));
-
-            if (_subject != null)
+            if (token == null)
             {
-                jwtBodyBuilder.Append(JWT_BODY_SUBJECT_PART).Append(_subject).Append(JWT_BODY_WITH_SUBJECT_CLOSING);
-            }
-            else
-            {
-                jwtBodyBuilder.Append(JWT_BODY_WITHOUT_SUBJECT_CLOSING);
+                DateTime absoluteExpiration = DateTime.UtcNow.AddSeconds(_relativeExpiration);
+
+                token = GenerateToken(audience, absoluteExpiration);
+
+                TokenCache?.Put(audience, absoluteExpiration, token);
             }
 
-            return UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(jwtBodyBuilder.ToString()));
+            return token;
         }
 
-        private static long GetAbsoluteExpiration(int expirationSeconds)
+        private string GenerateToken(string audience, DateTime absoluteExpiration)
         {
-            TimeSpan unixEpochOffset = DateTime.UtcNow - _unixEpoch;
-
-            return (long)unixEpochOffset.TotalSeconds + expirationSeconds;
-        }
-
-        private string GenerateJwtToken(string jwtBodySegment)
-        {
-            string jwtInput = _jwtHeaderSegment + JWT_SEPARATOR + jwtBodySegment;
+            string jwtInput = _jwtHeaderSegment + JWT_SEPARATOR + GenerateJwtBodySegment(audience, absoluteExpiration);
 
             byte[] jwtInputHash;
             using (var sha256Hasher = SHA256.Create())
@@ -266,6 +254,32 @@ namespace Lib.Net.Http.WebPush.Authentication
             ByteArrayCopyWithPadLeft(jwtSignatureSecondSegment, combinedJwtSignature, jwtSignatureSegmentLength, jwtSignatureSegmentLength);
 
             return jwtInput + JWT_SEPARATOR + UrlBase64Converter.ToUrlBase64String(combinedJwtSignature);
+        }
+
+        private string GenerateJwtBodySegment(string audience, DateTime absoluteExpiration)
+        {
+            StringBuilder jwtBodyBuilder = new StringBuilder();
+
+            jwtBodyBuilder.Append(JWT_BODY_AUDIENCE_PART).Append(audience)
+                .Append(JWT_BODY_EXPIRATION_PART).Append(ToUnixTimeSeconds(absoluteExpiration).ToString(CultureInfo.InvariantCulture));
+
+            if (_subject != null)
+            {
+                jwtBodyBuilder.Append(JWT_BODY_SUBJECT_PART).Append(_subject).Append(JWT_BODY_WITH_SUBJECT_CLOSING);
+            }
+            else
+            {
+                jwtBodyBuilder.Append(JWT_BODY_WITHOUT_SUBJECT_CLOSING);
+            }
+
+            return UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(jwtBodyBuilder.ToString()));
+        }
+
+        private static long ToUnixTimeSeconds(DateTime dateTime)
+        {
+            TimeSpan unixEpochOffset = dateTime - _unixEpoch;
+
+            return (long)unixEpochOffset.TotalSeconds;
         }
 
         private static void ByteArrayCopyWithPadLeft(byte[] sourceArray, byte[] destinationArray, int destinationIndex, int destinationLengthToUse)
