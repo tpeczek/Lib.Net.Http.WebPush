@@ -39,6 +39,11 @@ namespace Lib.Net.Http.WebPush
                 _timeToLive = value;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the message urgency.
+        /// </summary>
+        public PushMessageUrgency Urgency { get; set; }
         #endregion
 
         #region Constructors
@@ -49,6 +54,7 @@ namespace Lib.Net.Http.WebPush
         public PushMessage(string content)
         {
             Content = content;
+            Urgency = PushMessageUrgency.Normal;
         }
         #endregion
     }

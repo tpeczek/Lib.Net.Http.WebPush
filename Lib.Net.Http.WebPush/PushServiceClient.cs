@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -41,6 +42,12 @@ namespace Lib.Net.Http.WebPush
         private const int CONTENT_RECORD_SIZE = 4096;
 
         private static readonly byte[] _keyingMaterialInfoParameterPrefix = Encoding.ASCII.GetBytes(KEYING_MATERIAL_INFO_PARAMETER_PREFIX);
+        private static readonly Dictionary<PushMessageUrgency, string> _urgencyHeaderValues = new Dictionary<PushMessageUrgency, string>
+        {
+            { PushMessageUrgency.VeryLow, "very-low" },
+            { PushMessageUrgency.Low, "low" },
+            { PushMessageUrgency.High, "high" }
+        };
 
         private int _defaultTimeToLive = DEFAULT_TIME_TO_LIVE;
 
@@ -194,6 +201,24 @@ namespace Lib.Net.Http.WebPush
             else
             {
                 pushMessageDeliveryRequest.Headers.Authorization = new AuthenticationHeaderValue(VAPID_AUTHENTICATION_SCHEME, authentication.GetVapidSchemeAuthenticationHeaderValueParameter(audience));
+            }
+
+            return pushMessageDeliveryRequest;
+        }
+
+        private static HttpRequestMessage SetUrgency(HttpRequestMessage pushMessageDeliveryRequest, PushMessage message)
+        {
+            switch (message.Urgency)
+            {
+                case PushMessageUrgency.Normal:
+                    break;
+                case PushMessageUrgency.VeryLow:
+                case PushMessageUrgency.Low:
+                case PushMessageUrgency.High:
+                    pushMessageDeliveryRequest.Headers.Add(URGENCY_HEADER_NAME, _urgencyHeaderValues[message.Urgency]);
+                    break;
+                default:
+                    throw new NotSupportedException($"Not supported value has been provided for {nameof(PushMessageUrgency)}.");
             }
 
             return pushMessageDeliveryRequest;
