@@ -26,6 +26,7 @@ namespace Lib.Net.Http.WebPush
     {
         #region Fields
         private const string TTL_HEADER_NAME = "TTL";
+        private const string TOPIC_HEADER_NAME = "Topic";
         private const string URGENCY_HEADER_NAME = "Urgency";
         private const string CRYPTO_KEY_HEADER_NAME = "Crypto-Key";
         private const string WEBPUSH_AUTHENTICATION_SCHEME = "WebPush";
@@ -172,6 +173,7 @@ namespace Lib.Net.Http.WebPush
                 }
             };
             pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication, authenticationScheme);
+            pushMessageDeliveryRequest = SetTopic(pushMessageDeliveryRequest, message);
             pushMessageDeliveryRequest = SetContent(pushMessageDeliveryRequest, subscription, message);
 
             return pushMessageDeliveryRequest;
@@ -192,6 +194,16 @@ namespace Lib.Net.Http.WebPush
             else
             {
                 pushMessageDeliveryRequest.Headers.Authorization = new AuthenticationHeaderValue(VAPID_AUTHENTICATION_SCHEME, authentication.GetVapidSchemeAuthenticationHeaderValueParameter(audience));
+            }
+
+            return pushMessageDeliveryRequest;
+        }
+
+        private static HttpRequestMessage SetTopic(HttpRequestMessage pushMessageDeliveryRequest, PushMessage message)
+        {
+            if (!String.IsNullOrWhiteSpace(message.Topic))
+            {
+                pushMessageDeliveryRequest.Headers.Add(TOPIC_HEADER_NAME, message.Topic);
             }
 
             return pushMessageDeliveryRequest;

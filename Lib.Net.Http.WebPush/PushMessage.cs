@@ -13,6 +13,11 @@ namespace Lib.Net.Http.WebPush
 
         #region Properties
         /// <summary>
+        /// Gets or sets the topic (used to correlate messages sent to the same subscription).
+        /// </summary>
+        public string Topic { get; set; }
+
+        /// <summary>
         /// Gets or sets the content.
         /// </summary>
         public string Content { get; set; }
