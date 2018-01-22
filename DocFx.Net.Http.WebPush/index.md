@@ -1,6 +1,6 @@
 ﻿# Lib.Net.Http.WebPush
 
-Lib.Net.Http.WebPush is a library which provides a [Web Push Protocol](https://tools.ietf.org/html/rfc8030) based client for Push Service. It provides support for [Voluntary Application Server Identification (VAPID) for Web Push](https://tools.ietf.org/html/rfc8292) and [Message Encryption for Web Push](https://tools.ietf.org/html/rfc8291).
+Lib.Net.Http.WebPush is a library which provides a [*Web Push Protocol*](https://tools.ietf.org/html/rfc8030) based client for *Push Service*. It provides support for [Voluntary Application Server Identification (*VAPID*) for Web Push](https://tools.ietf.org/html/rfc8292) and [Message Encryption for Web Push](https://tools.ietf.org/html/rfc8291).
 
 ## Installation
 
@@ -13,6 +13,14 @@ PM>  Install-Package Lib.Net.Http.WebPush
 ## Demos
 
 There is a demo project available [here](https://github.com/tpeczek/Demo.AspNetCore.PushNotifications).
+
+## Additional Resources
+
+There is a "Push Notifications and ASP.NET Core" series which provides a lot of information about *Push API*, *Web Push Protocol* and internals of this library:
+
+- [Push Notifications and ASP.NET Core - Part 1 (Push API)](https://www.tpeczek.com/2017/12/push-notifications-and-aspnet-core-part.html)
+- [Push Notifications and ASP.NET Core - Part 2 (Requesting Delivery)](https://www.tpeczek.com/2018/01/push-notifications-and-aspnet-core-part.html)
+- [Push Notifications and ASP.NET Core - Part 3 (Replacing Messages & Urgency)](https://www.tpeczek.com/2018/01/push-notifications-and-aspnet-core-part_18.html)
 
 ## Donating
 
