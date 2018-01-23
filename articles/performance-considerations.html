@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Performance Considerations | Lib.Net.Http.WebPush </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Performance Considerations | Lib.Net.Http.WebPush ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../resources/ico/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/svg/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="performance-considerations">Performance Considerations</h1>
+
+<p>A typical application can be processing a very high number of <em>Push Messages</em>. Because of that it&#39;s important to consider performance best practices.</p>
+<h2 id="proper-instantiation">Proper Instantiation</h2>
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> class is internally holding an instance of <code>HttpClient</code> class. As one can read in documentation:</p>
+<blockquote><p>HttpClient is intended to be instantiated once and re-used throughout the life of an application. Instantiating an HttpClient class for every request will exhaust the number of sockets available under heavy loads.</p>
+</blockquote>
+<p>Because of that (in order to avoid Improper Instantiation antipattern) a shared singleton instance of <code>PushServiceClient</code> should be created or a pool of reusable instances should be used.</p>
+<h2 id="vapid-tokens-caching">VAPID Tokens Caching</h2>
+<p>Generating <em>VAPID</em> tokens requires expensive cryptography. The structure of tokens allows for them to be cached per <em>Audience</em> (which means by <em>Push Service</em>) and <em>Application Server Keys</em> pair (for the token expiration period). This library provides such possibility through <a href="../api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.html"><code>IVapidTokenCache</code></a>. If an implementation of this interface will be provided to <a href="../api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html"><code>VapidAuthentication</code></a> instance, it will result in tokens being cached.</p>
+<p>Below is a sample implementation which uses <a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory">ASP.NET Core in-memory caching</a>.</p>
+<pre><code class="lang-cs">public class MemoryVapidTokenCache : IVapidTokenCache
+{
+    private readonly IMemoryCache _memoryCache;
+
+    public MemoryVapidTokenCache(IMemoryCache memoryCache)
+    {
+        _memoryCache = memoryCache;
+    }
+
+    public string Get(string audience)
+    {
+        if (!_memoryCache.TryGetValue(audience, out string token))
+        {
+            token = null;
+        }
+
+        return token;
+    }
+
+    public void Put(string audience, DateTimeOffset expiration, string token)
+    {
+        _memoryCache.Set(audience, token, expiration);
+    }
+}
+</code></pre><p>The usage of <em>Audience</em> as cache key means that intended context of this interface is a single <em>Application Server Keys</em> pair. If application is handling multiple <em>Application Server Keys</em> pairs it should provide a separate implementation for every pair and make sure those doesn&#39;t clash.</p>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2018 Tomasz Pęczek
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

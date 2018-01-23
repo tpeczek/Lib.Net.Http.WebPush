@@ -1,0 +1,269 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/GitHub/Lib.Net.Http.WebPush/DocFx.Net.Http.WebPush",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.html",
+          "hash": "/XvN/cSSr1QwwMDUExs+SQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.html",
+          "hash": "pq9005RdDAOIE8vXqwkBGA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html",
+          "hash": "JuCp71qRrJOZ5MX1aFHE6g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html",
+          "hash": "NRCrJSIykPCmEZKVCc7Txg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.Authentication.html",
+          "hash": "KLW2MQU4d01h/ZgcgZqt1g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushEncryptionKeyName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushEncryptionKeyName.html",
+          "hash": "IYyg8v8VNpqppKFfyRcibQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushMessage.html",
+          "hash": "zahc9TvX9Yuu2+FplFI5gg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushMessageUrgency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushMessageUrgency.html",
+          "hash": "7uEHKIowNY9XwS1AF6Kv4Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushServiceClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushServiceClient.html",
+          "hash": "WFWSOelKtCHsiRJZlVBBKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushServiceClientException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushServiceClientException.html",
+          "hash": "y0cLh4WgDFBN8kwlIqVa8A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.PushSubscription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.PushSubscription.html",
+          "hash": "bhIR/mVya3wvBhrhGNHGuQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Net.Http.WebPush.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Net.Http.WebPush.html",
+          "hash": "4fOXYoF730On0zgpNOmagw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "Thm8fXyOCsG9pH6ibwKRyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/performance-considerations.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/performance-considerations.html",
+          "hash": "KKOtDnY101SRTBTo6fEAPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "Vhs01WnnD6YmWAiDHWcrAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ico/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ico/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/svg/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "resources/svg/logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "IxaYsv1mL5n2Yh6R5p2kyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

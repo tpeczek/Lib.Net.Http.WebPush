@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PushServiceClient
+   | Lib.Net.Http.WebPush </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PushServiceClient
+   | Lib.Net.Http.WebPush ">
+    <meta name="generator" content="docfx 2.30.0.0">
+    
+    <link rel="shortcut icon" href="../resources/ico/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/svg/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="Lib.Net.Http.WebPush.PushServiceClient">
+  
+  
+  <h1 id="Lib_Net_Http_WebPush_PushServiceClient" data-uid="Lib.Net.Http.WebPush.PushServiceClient" class="text-break">Class PushServiceClient
+  </h1>
+  <div class="markdown level0 summary"><p>A Web Push Protocol compliant client for push service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">PushServiceClient</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Lib.Net.Http.WebPush.html">Lib.Net.Http.WebPush</a></h6>
+  <h6><strong>Assembly</strong>: Lib.Net.Http.WebPush.dll</h6>
+  <h5 id="Lib_Net_Http_WebPush_PushServiceClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PushServiceClient</code></pre>
+  </div>
+  <h5 id="Lib_Net_Http_WebPush_PushServiceClient_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The <a class="xref" href="Lib.Net.Http.WebPush.PushServiceClient.html">PushServiceClient</a> should be considered an expensive object as it internally holds an instance of <span class="xref">System.Net.Http.HttpClient</span> class. In order to avoid Improper Instantiation antipattern a shared singleton instance should be created or a pool of reusable instances should be used.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication">DefaultAuthentication</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the default authentication details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VapidAuthentication DefaultAuthentication { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html">VapidAuthentication</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthenticationScheme_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthenticationScheme*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthenticationScheme" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthenticationScheme">DefaultAuthenticationScheme</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the default <a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a> to be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VapidAuthenticationScheme DefaultAuthenticationScheme { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_DefaultTimeToLive_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultTimeToLive*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_DefaultTimeToLive" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultTimeToLive">DefaultTimeToLive</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the default time (in seconds) for which the message should be retained by push service. It will be used when <a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_TimeToLive">TimeToLive</a> is not set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultTimeToLive { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_Lib_Net_Http_WebPush_Authentication_VapidAuthentication_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage,Lib.Net.Http.WebPush.Authentication.VapidAuthentication)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage, VapidAuthentication)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html">VapidAuthentication</a></td>
+        <td><span class="parametername">authentication</span></td>
+        <td><p>The authentication details.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Lib_Net_Http_WebPush_Authentication_VapidAuthenticationScheme_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage,Lib.Net.Http.WebPush.Authentication.VapidAuthentication,Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage, VapidAuthentication, VapidAuthenticationScheme)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html">VapidAuthentication</a></td>
+        <td><span class="parametername">authentication</span></td>
+        <td><p>The authentication details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a></td>
+        <td><span class="parametername">authenticationScheme</span></td>
+        <td><p>The <a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a> to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Lib_Net_Http_WebPush_Authentication_VapidAuthenticationScheme_System_Threading_CancellationToken_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage,Lib.Net.Http.WebPush.Authentication.VapidAuthentication,Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme,System.Threading.CancellationToken)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage, VapidAuthentication, VapidAuthenticationScheme, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html">VapidAuthentication</a></td>
+        <td><span class="parametername">authentication</span></td>
+        <td><p>The authentication details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a></td>
+        <td><span class="parametername">authenticationScheme</span></td>
+        <td><p>The <a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html">VapidAuthenticationScheme</a> to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token to cancel operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_Lib_Net_Http_WebPush_Authentication_VapidAuthentication_System_Threading_CancellationToken_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage,Lib.Net.Http.WebPush.Authentication.VapidAuthentication,System.Threading.CancellationToken)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage, VapidAuthentication, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html">VapidAuthentication</a></td>
+        <td><span class="parametername">authentication</span></td>
+        <td><p>The authentication details.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token to cancel operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_Lib_Net_Http_WebPush_PushSubscription_Lib_Net_Http_WebPush_PushMessage_System_Threading_CancellationToken_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage,System.Threading.CancellationToken)">RequestPushMessageDeliveryAsync(PushSubscription, PushMessage, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Requests delivery of push message by push service as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushSubscription.html">PushSubscription</a></td>
+        <td><span class="parametername">subscription</span></td>
+        <td><p>The push service subscription.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html">PushMessage</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The push message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token to cancel operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2018 Tomasz Pęczek
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
