@@ -11,6 +11,10 @@ You can install [Lib.Net.Http.WebPush](https://www.nuget.org/packages/Lib.Net.Ht
 PM>  Install-Package Lib.Net.Http.WebPush
 ```
 
+## Documentation
+
+The documentation is available [here](https://tpeczek.github.io/Lib.Net.Http.WebPush/).
+
 ## Demos
 
 There is a demo project available [here](https://github.com/tpeczek/Demo.AspNetCore.PushNotifications).
