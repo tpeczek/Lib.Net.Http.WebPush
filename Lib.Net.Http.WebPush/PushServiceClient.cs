@@ -51,7 +51,7 @@ namespace Lib.Net.Http.WebPush
 
         private int _defaultTimeToLive = DEFAULT_TIME_TO_LIVE;
 
-        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         #endregion
 
         #region Properties
@@ -82,6 +82,24 @@ namespace Lib.Net.Http.WebPush
         /// Gets or sets the default <see cref="VapidAuthenticationScheme"/> to be used.
         /// </summary>
         public VapidAuthenticationScheme DefaultAuthenticationScheme { get; set; } = VapidAuthenticationScheme.WebPush;
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Creates new instance of <see cref="PushServiceClient"/> class.
+        /// </summary>
+        public PushServiceClient()
+            : this(new HttpClient())
+        { }
+
+        /// <summary>
+        /// Creates new instance of <see cref="PushServiceClient"/> class.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance.</param>
+        public PushServiceClient(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
         #endregion
 
         #region Methods
