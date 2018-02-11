@@ -198,6 +198,7 @@ namespace Lib.Net.Http.WebPush
                 }
             };
             pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication, authenticationScheme);
+            pushMessageDeliveryRequest = SetUrgency(pushMessageDeliveryRequest, message);
             pushMessageDeliveryRequest = SetTopic(pushMessageDeliveryRequest, message);
             pushMessageDeliveryRequest = SetContent(pushMessageDeliveryRequest, subscription, message);
 
