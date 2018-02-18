@@ -37,7 +37,6 @@ namespace Lib.Net.Http.WebPush
 
         private const string KEYING_MATERIAL_INFO_PARAMETER_PREFIX = "WebPush: info";
         private const byte KEYING_MATERIAL_INFO_PARAMETER_DELIMITER = 1;
-        private const int KEYING_MATERIAL_INFO_PARAMETER_LENGTH = 32;
 
         private const int CONTENT_RECORD_SIZE = 4096;
 
@@ -285,9 +284,7 @@ namespace Lib.Net.Http.WebPush
             byte[] sharedSecret = ecdhAgreement.CalculateAgreement(ECKeyHelper.GetECPublicKeyParameters(userAgentPublicKey)).ToByteArrayUnsigned();
             byte[] sharedSecretHash = HmacSha256(authenticationSecret, sharedSecret);
             byte[] infoParameter = GetKeyingMaterialInfoParameter(userAgentPublicKey, applicationServerPublicKey);
-
             byte[] keyingMaterial = HmacSha256(sharedSecretHash, infoParameter);
-            Array.Resize(ref keyingMaterial, KEYING_MATERIAL_INFO_PARAMETER_LENGTH);
 
             return keyingMaterial;
         }
