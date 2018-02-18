@@ -297,14 +297,13 @@ namespace Lib.Net.Http.WebPush
             // "WebPush: info" || 0x00 || ua_public || as_public || 0x01
             byte[] infoParameter = new byte[_keyingMaterialInfoParameterPrefix.Length + userAgentPublicKey.Length + applicationServerPublicKey.Length + 2];
 
-            Array.Copy(_keyingMaterialInfoParameterPrefix, infoParameter, _keyingMaterialInfoParameterPrefix.Length);
+            Buffer.BlockCopy(_keyingMaterialInfoParameterPrefix, 0, infoParameter, 0, _keyingMaterialInfoParameterPrefix.Length);
             int infoParameterIndex = _keyingMaterialInfoParameterPrefix.Length + 1;
 
-            Array.Copy(userAgentPublicKey, 0, infoParameter, infoParameterIndex, userAgentPublicKey.Length);
+            Buffer.BlockCopy(userAgentPublicKey, 0, infoParameter, infoParameterIndex, userAgentPublicKey.Length);
             infoParameterIndex += userAgentPublicKey.Length;
 
-            Array.Copy(applicationServerPublicKey, 0, infoParameter, infoParameterIndex, applicationServerPublicKey.Length);
-
+            Buffer.BlockCopy(applicationServerPublicKey, 0, infoParameter, infoParameterIndex, applicationServerPublicKey.Length);
             infoParameter[infoParameter.Length - 1] = KEYING_MATERIAL_INFO_PARAMETER_DELIMITER;
 
             return infoParameter;

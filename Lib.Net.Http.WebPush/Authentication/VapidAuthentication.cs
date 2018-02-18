@@ -3,7 +3,6 @@ using System.Text;
 using System.Globalization;
 using System.Security.Cryptography;
 using Org.BouncyCastle.Math;
-using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Signers;
 using Lib.Net.Http.WebPush.Internals;
 
@@ -59,11 +58,12 @@ namespace Lib.Net.Http.WebPush.Authentication
         private string _subject;
         private string _publicKey;
         private string _privateKey;
-        private ECPrivateKeyParameters _privateSigningKey;
         private int _relativeExpiration;
 
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
         private static readonly string _jwtHeaderSegment = UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JWT_HEADER));
+
+        private ECDsaSigner _jwtSigner;
         #endregion
 
         #region Properties
@@ -140,7 +140,9 @@ namespace Lib.Net.Http.WebPush.Authentication
                 }
 
                 _privateKey = value;
-                _privateSigningKey = ECKeyHelper.GetECPrivateKeyParameters(decodedPrivateKey);
+
+                _jwtSigner = new ECDsaSigner();
+                _jwtSigner.Init(true, ECKeyHelper.GetECPrivateKeyParameters(decodedPrivateKey));
             }
         }
 
@@ -240,10 +242,7 @@ namespace Lib.Net.Http.WebPush.Authentication
                 jwtInputHash = sha256Hasher.ComputeHash(Encoding.UTF8.GetBytes(jwtInput));
             }
 
-            ECDsaSigner jwtSigner = new ECDsaSigner();
-            jwtSigner.Init(true, _privateSigningKey);
-
-            BigInteger[] jwtSignature = jwtSigner.GenerateSignature(jwtInputHash);
+            BigInteger[] jwtSignature = _jwtSigner.GenerateSignature(jwtInputHash);
 
             byte[] jwtSignatureFirstSegment = jwtSignature[0].ToByteArrayUnsigned();
             byte[] jwtSignatureSecondSegment = jwtSignature[1].ToByteArrayUnsigned();
@@ -289,7 +288,7 @@ namespace Lib.Net.Http.WebPush.Authentication
                 destinationIndex += (destinationLengthToUse - sourceArray.Length);
             }
 
-            Array.Copy(sourceArray, 0, destinationArray, destinationIndex, sourceArray.Length);
+            Buffer.BlockCopy(sourceArray, 0, destinationArray, destinationIndex, sourceArray.Length);
         }
         #endregion
     }
