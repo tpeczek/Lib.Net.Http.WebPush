@@ -106,6 +106,44 @@
   <h5 id="Lib_Net_Http_WebPush_PushServiceClient_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The <a class="xref" href="Lib.Net.Http.WebPush.PushServiceClient.html">PushServiceClient</a> should be considered an expensive object as it internally holds an instance of <span class="xref">System.Net.Http.HttpClient</span> class. In order to avoid Improper Instantiation antipattern a shared singleton instance should be created or a pool of reusable instances should be used.</p>
 </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient__ctor_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.#ctor*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient__ctor" data-uid="Lib.Net.Http.WebPush.PushServiceClient.#ctor">PushServiceClient()</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of <a class="xref" href="Lib.Net.Http.WebPush.PushServiceClient.html">PushServiceClient</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PushServiceClient()</code></pre>
+  </div>
+  <a id="Lib_Net_Http_WebPush_PushServiceClient__ctor_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.#ctor*"></a>
+  <h4 id="Lib_Net_Http_WebPush_PushServiceClient__ctor_System_Net_Http_HttpClient_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.#ctor(System.Net.Http.HttpClient)">PushServiceClient(HttpClient)</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of <a class="xref" href="Lib.Net.Http.WebPush.PushServiceClient.html">PushServiceClient</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PushServiceClient(HttpClient httpClient)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>The HttpClient instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   <a id="Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication_" data-uid="Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication*"></a>

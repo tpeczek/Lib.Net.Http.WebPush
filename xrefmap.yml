@@ -313,6 +313,24 @@ references:
   commentId: T:Lib.Net.Http.WebPush.PushServiceClient
   fullName: Lib.Net.Http.WebPush.PushServiceClient
   nameWithType: PushServiceClient
+- uid: Lib.Net.Http.WebPush.PushServiceClient.#ctor
+  name: PushServiceClient()
+  href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient__ctor
+  commentId: M:Lib.Net.Http.WebPush.PushServiceClient.#ctor
+  fullName: Lib.Net.Http.WebPush.PushServiceClient.PushServiceClient()
+  nameWithType: PushServiceClient.PushServiceClient()
+- uid: Lib.Net.Http.WebPush.PushServiceClient.#ctor(System.Net.Http.HttpClient)
+  name: PushServiceClient(HttpClient)
+  href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient__ctor_System_Net_Http_HttpClient_
+  commentId: M:Lib.Net.Http.WebPush.PushServiceClient.#ctor(System.Net.Http.HttpClient)
+  fullName: Lib.Net.Http.WebPush.PushServiceClient.PushServiceClient(System.Net.Http.HttpClient)
+  nameWithType: PushServiceClient.PushServiceClient(HttpClient)
+- uid: Lib.Net.Http.WebPush.PushServiceClient.#ctor*
+  name: PushServiceClient
+  href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient__ctor_
+  commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.#ctor
+  fullName: Lib.Net.Http.WebPush.PushServiceClient.PushServiceClient
+  nameWithType: PushServiceClient.PushServiceClient
 - uid: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication
   name: DefaultAuthentication
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication
