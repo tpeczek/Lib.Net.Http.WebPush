@@ -1,3 +1,7 @@
+## Lib.Net.Http.WebPush 1.4.0
+### Additions and Changes
+- Added support for .NET Standard 2.0
+
 ## Lib.Net.Http.WebPush 1.3.0
 ### Bug Fixes
 - Fix for push messages urgency
