@@ -1,3 +1,7 @@
+## Lib.Net.Http.WebPush 1.5.0
+### Bug Fixes
+- Fix for *Length Required* issue in case of push message delivery request to MS Edge
+
 ## Lib.Net.Http.WebPush 1.4.0
 ### Additions and Changes
 - Added support for .NET Standard 2.0
