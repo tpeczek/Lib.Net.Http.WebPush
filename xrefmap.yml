@@ -29,6 +29,7 @@ references:
   name: Get
   href: api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.html#Lib_Net_Http_WebPush_Authentication_IVapidTokenCache_Get_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.Get
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.Get
   nameWithType: IVapidTokenCache.Get
 - uid: Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.Put(System.String,System.DateTimeOffset,System.String)
@@ -41,6 +42,7 @@ references:
   name: Put
   href: api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.html#Lib_Net_Http_WebPush_Authentication_IVapidTokenCache_Put_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.Put
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.Put
   nameWithType: IVapidTokenCache.Put
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication
@@ -59,6 +61,7 @@ references:
   name: VapidAuthentication
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication__ctor_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.#ctor
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.VapidAuthentication
   nameWithType: VapidAuthentication.VapidAuthentication
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Expiration
@@ -71,6 +74,7 @@ references:
   name: Expiration
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Expiration_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Expiration
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Expiration
   nameWithType: VapidAuthentication.Expiration
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetVapidSchemeAuthenticationHeaderValueParameter(System.String)
@@ -83,6 +87,7 @@ references:
   name: GetVapidSchemeAuthenticationHeaderValueParameter
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_GetVapidSchemeAuthenticationHeaderValueParameter_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetVapidSchemeAuthenticationHeaderValueParameter
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetVapidSchemeAuthenticationHeaderValueParameter
   nameWithType: VapidAuthentication.GetVapidSchemeAuthenticationHeaderValueParameter
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetWebPushSchemeHeadersValues(System.String)
@@ -95,6 +100,7 @@ references:
   name: GetWebPushSchemeHeadersValues
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_GetWebPushSchemeHeadersValues_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetWebPushSchemeHeadersValues
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.GetWebPushSchemeHeadersValues
   nameWithType: VapidAuthentication.GetWebPushSchemeHeadersValues
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PrivateKey
@@ -107,6 +113,7 @@ references:
   name: PrivateKey
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_PrivateKey_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PrivateKey
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PrivateKey
   nameWithType: VapidAuthentication.PrivateKey
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PublicKey
@@ -119,6 +126,7 @@ references:
   name: PublicKey
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_PublicKey_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PublicKey
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.PublicKey
   nameWithType: VapidAuthentication.PublicKey
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Subject
@@ -131,6 +139,7 @@ references:
   name: Subject
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Subject_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Subject
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Subject
   nameWithType: VapidAuthentication.Subject
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.TokenCache
@@ -143,6 +152,7 @@ references:
   name: TokenCache
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_TokenCache_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.TokenCache
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.TokenCache
   nameWithType: VapidAuthentication.TokenCache
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues
@@ -161,6 +171,7 @@ references:
   name: AuthenticationHeaderValueParameter
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_WebPushSchemeHeadersValues_AuthenticationHeaderValueParameter_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.AuthenticationHeaderValueParameter
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.AuthenticationHeaderValueParameter
   nameWithType: VapidAuthentication.WebPushSchemeHeadersValues.AuthenticationHeaderValueParameter
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.CryptoKeyHeaderValue
@@ -173,6 +184,7 @@ references:
   name: CryptoKeyHeaderValue
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_WebPushSchemeHeadersValues_CryptoKeyHeaderValue_
   commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.CryptoKeyHeaderValue
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.CryptoKeyHeaderValue
   nameWithType: VapidAuthentication.WebPushSchemeHeadersValues.CryptoKeyHeaderValue
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme
@@ -227,6 +239,7 @@ references:
   name: PushMessage
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage__ctor_
   commentId: Overload:Lib.Net.Http.WebPush.PushMessage.#ctor
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.PushMessage
   nameWithType: PushMessage.PushMessage
 - uid: Lib.Net.Http.WebPush.PushMessage.Content
@@ -239,6 +252,7 @@ references:
   name: Content
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_Content_
   commentId: Overload:Lib.Net.Http.WebPush.PushMessage.Content
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.Content
   nameWithType: PushMessage.Content
 - uid: Lib.Net.Http.WebPush.PushMessage.TimeToLive
@@ -251,6 +265,7 @@ references:
   name: TimeToLive
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_TimeToLive_
   commentId: Overload:Lib.Net.Http.WebPush.PushMessage.TimeToLive
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.TimeToLive
   nameWithType: PushMessage.TimeToLive
 - uid: Lib.Net.Http.WebPush.PushMessage.Topic
@@ -263,6 +278,7 @@ references:
   name: Topic
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_Topic_
   commentId: Overload:Lib.Net.Http.WebPush.PushMessage.Topic
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.Topic
   nameWithType: PushMessage.Topic
 - uid: Lib.Net.Http.WebPush.PushMessage.Urgency
@@ -275,6 +291,7 @@ references:
   name: Urgency
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_Urgency_
   commentId: Overload:Lib.Net.Http.WebPush.PushMessage.Urgency
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.Urgency
   nameWithType: PushMessage.Urgency
 - uid: Lib.Net.Http.WebPush.PushMessageUrgency
@@ -329,6 +346,7 @@ references:
   name: PushServiceClient
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient__ctor_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.#ctor
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.PushServiceClient
   nameWithType: PushServiceClient.PushServiceClient
 - uid: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication
@@ -341,6 +359,7 @@ references:
   name: DefaultAuthentication
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication
   nameWithType: PushServiceClient.DefaultAuthentication
 - uid: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthenticationScheme
@@ -353,6 +372,7 @@ references:
   name: DefaultAuthenticationScheme
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthenticationScheme_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthenticationScheme
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthenticationScheme
   nameWithType: PushServiceClient.DefaultAuthenticationScheme
 - uid: Lib.Net.Http.WebPush.PushServiceClient.DefaultTimeToLive
@@ -365,6 +385,7 @@ references:
   name: DefaultTimeToLive
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_DefaultTimeToLive_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.DefaultTimeToLive
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.DefaultTimeToLive
   nameWithType: PushServiceClient.DefaultTimeToLive
 - uid: Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync(Lib.Net.Http.WebPush.PushSubscription,Lib.Net.Http.WebPush.PushMessage)
@@ -407,6 +428,7 @@ references:
   name: RequestPushMessageDeliveryAsync
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_RequestPushMessageDeliveryAsync_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.RequestPushMessageDeliveryAsync
   nameWithType: PushServiceClient.RequestPushMessageDeliveryAsync
 - uid: Lib.Net.Http.WebPush.PushServiceClientException
@@ -425,6 +447,7 @@ references:
   name: PushServiceClientException
   href: api/Lib.Net.Http.WebPush.PushServiceClientException.html#Lib_Net_Http_WebPush_PushServiceClientException__ctor_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClientException.#ctor
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClientException.PushServiceClientException
   nameWithType: PushServiceClientException.PushServiceClientException
 - uid: Lib.Net.Http.WebPush.PushServiceClientException.StatusCode
@@ -437,6 +460,7 @@ references:
   name: StatusCode
   href: api/Lib.Net.Http.WebPush.PushServiceClientException.html#Lib_Net_Http_WebPush_PushServiceClientException_StatusCode_
   commentId: Overload:Lib.Net.Http.WebPush.PushServiceClientException.StatusCode
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClientException.StatusCode
   nameWithType: PushServiceClientException.StatusCode
 - uid: Lib.Net.Http.WebPush.PushSubscription
@@ -455,6 +479,7 @@ references:
   name: Endpoint
   href: api/Lib.Net.Http.WebPush.PushSubscription.html#Lib_Net_Http_WebPush_PushSubscription_Endpoint_
   commentId: Overload:Lib.Net.Http.WebPush.PushSubscription.Endpoint
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushSubscription.Endpoint
   nameWithType: PushSubscription.Endpoint
 - uid: Lib.Net.Http.WebPush.PushSubscription.GetKey(Lib.Net.Http.WebPush.PushEncryptionKeyName)
@@ -467,6 +492,7 @@ references:
   name: GetKey
   href: api/Lib.Net.Http.WebPush.PushSubscription.html#Lib_Net_Http_WebPush_PushSubscription_GetKey_
   commentId: Overload:Lib.Net.Http.WebPush.PushSubscription.GetKey
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushSubscription.GetKey
   nameWithType: PushSubscription.GetKey
 - uid: Lib.Net.Http.WebPush.PushSubscription.Keys
@@ -479,6 +505,7 @@ references:
   name: Keys
   href: api/Lib.Net.Http.WebPush.PushSubscription.html#Lib_Net_Http_WebPush_PushSubscription_Keys_
   commentId: Overload:Lib.Net.Http.WebPush.PushSubscription.Keys
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushSubscription.Keys
   nameWithType: PushSubscription.Keys
 - uid: Lib.Net.Http.WebPush.PushSubscription.SetKey(Lib.Net.Http.WebPush.PushEncryptionKeyName,System.String)
@@ -491,5 +518,6 @@ references:
   name: SetKey
   href: api/Lib.Net.Http.WebPush.PushSubscription.html#Lib_Net_Http_WebPush_PushSubscription_SetKey_
   commentId: Overload:Lib.Net.Http.WebPush.PushSubscription.SetKey
+  isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushSubscription.SetKey
   nameWithType: PushSubscription.SetKey
