@@ -80,7 +80,7 @@ namespace Lib.Net.Http.WebPush
         /// <summary>
         /// Gets or sets the default <see cref="VapidAuthenticationScheme"/> to be used.
         /// </summary>
-        public VapidAuthenticationScheme DefaultAuthenticationScheme { get; set; } = VapidAuthenticationScheme.WebPush;
+        public VapidAuthenticationScheme DefaultAuthenticationScheme { get; set; } = VapidAuthenticationScheme.Vapid;
         #endregion
 
         #region Constructors
