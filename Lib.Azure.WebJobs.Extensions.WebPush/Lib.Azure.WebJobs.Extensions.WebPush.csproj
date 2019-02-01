@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>This package contains Azure Functions and Azure WebJobs binding extensions for Web Push Protocol based client for Push Service.</Description>
+    <Tags>Azure WebJobs AzureFunctions WebPush</Tags>
+    <Copyright>Copyright © 2019 Tomasz Pęczek</Copyright>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>Tomasz Pęczek</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>Lib.Azure.WebJobs.Extensions.WebPush</AssemblyTitle>
+    <AssemblyName>Lib.Azure.WebJobs.Extensions.WebPush</AssemblyName>
+    <PackageId>Lib.Azure.WebJobs.Extensions.WebPush</PackageId>
+    <PackageTags>azure;webjobs;azurefunctions;webpush</PackageTags>
+    <PackageProjectUrl>https://github.com/tpeczek/Lib.Net.Http.WebPush</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/tpeczek/Lib.Net.Http.WebPush</RepositoryUrl>
+    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Lib.Azure.WebJobs.Extensions.WebPush.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj" />
+  </ItemGroup>
+</Project>
