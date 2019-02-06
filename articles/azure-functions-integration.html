@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PushServiceClient bindings for Azure Functions | Lib.Net.Http.WebPush </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PushServiceClient bindings for Azure Functions | Lib.Net.Http.WebPush ">
+    <meta name="generator" content="docfx 2.36.2.0">
+    
+    <link rel="shortcut icon" href="../resources/ico/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/svg/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pushserviceclient-bindings-for-azure-functions">PushServiceClient bindings for Azure Functions</h1>
+
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> bindings for Azure Functions supports input binding.</p>
+<h2 id="packages">Packages</h2>
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> bindings for Azure Functions are provided in the <a href="https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush">Lib.Azure.WebJobs.Extensions.WebPush</a> NuGet package.</p>
+<pre><code>PM&gt;  Install-Package Lib.Azure.WebJobs.Extensions.WebPush
+</code></pre><h2 id="input">Input</h2>
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> input binding uses <code>HttpClientFactory</code> to retrieve <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> instance and passes it to the input parameter of the function.</p>
+<h3 id="input---language-specific-examples">Input - language-specific examples</h3>
+<h4 id="input---c-examples">Input - C# examples</h4>
+<p>In <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library">C# class libraries</a>, use the <a href="../api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.html"><code>PushService</code></a> attribute.</p>
+<p>The attribute&#39;s constructor takes the application server public key and application server private key. For information about those settings and other properties that you can configure, see <a href="#input---configuration">Input - configuration</a>.</p>
+<p>This section contains the following examples:</p>
+<ul>
+<li><a href="#azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</a></li>
+</ul>
+<h5 id="azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</h5>
+<p>The following example shows a <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library">C# function</a> that broadcasts a notification to all known subscriptions. The function is triggered by a change in Azure Cosmos DB collection and retrieves subscriptions also from Azure Cosmos DB.</p>
+<pre><code class="lang-cs">using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.Documents.Linq;
+using Microsoft.Azure.Documents.Client;
+using Lib.Net.Http.WebPush;
+using Lib.Azure.WebJobs.Extensions.WebPush.Bindings;
+
+namespace Demo.Azure.Funtions.PushNotifications
+{
+    public static class SendNotificationFunction
+    {
+        private static readonly Uri _subscriptionsCollectionUri = UriFactory.CreateDocumentCollectionUri(&quot;PushNotifications&quot;, &quot;SubscriptionsCollection&quot;);
+
+        [FunctionName(&quot;SendNotification&quot;)]
+        public static async Task Run([CosmosDBTrigger(
+            databaseName: &quot;PushNotifications&quot;,
+            collectionName: &quot;NotificationsCollection&quot;,
+            ConnectionStringSetting = &quot;CosmosDBConnection&quot;,
+            LeaseCollectionName = &quot;NotificationsLeaseCollection&quot;,
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList&lt;PushMessage&gt; notifications,
+            [CosmosDB(
+            databaseName: &quot;PushNotifications&quot;,
+            collectionName: &quot;SubscriptionsCollection&quot;,
+            ConnectionStringSetting = &quot;CosmosDBConnection&quot;)]DocumentClient cosmosDbClient,
+            [PushService(
+            PublicKeySetting = &quot;ApplicationServerPublicKey&quot;,
+            PrivateKeySetting = &quot;ApplicationServerPrivateKey&quot;,
+            SubjectSetting = &quot;ApplicationServerSubject&quot;)]PushServiceClient pushServiceClient)
+        {
+            if (notifications != null)
+            {
+                IDocumentQuery&lt;PushSubscription&gt; subscriptionQuery = cosmosDbClient.CreateDocumentQuery&lt;PushSubscription&gt;(_subscriptionsCollectionUri, new FeedOptions
+                {
+                    EnableCrossPartitionQuery = true,
+                    MaxItemCount = -1
+                }).AsDocumentQuery();
+
+                while (subscriptionQuery.HasMoreResults)
+                {
+                    foreach (PushSubscription subscription in await subscriptionQuery.ExecuteNextAsync())
+                    {
+                        foreach (PushMessage notification in notifications)
+                        {
+                            // Fire-and-forget
+                            pushServiceClient.RequestPushMessageDeliveryAsync(subscription, notification);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre><h3 id="input---configuration">Input - configuration</h3>
+<p>The following table explains the binding configuration properties that you set in the <em>function.json</em> file and the <a href="../api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.html"><code>PushService</code></a> attribute.</p>
+<table>
+<thead>
+<tr>
+<th>function.json property</th>
+<th>Attribute property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td></td>
+<td>Must be set to <code>pushService</code>.</td>
+</tr>
+<tr>
+<td><strong>direction</strong></td>
+<td></td>
+<td>Must be set to <code>in</code>.</td>
+</tr>
+<tr>
+<td><strong>publicKeySetting</strong></td>
+<td><strong>PublicKeySetting</strong></td>
+<td>The name of an app setting that contains the application server public key.</td>
+</tr>
+<tr>
+<td><strong>privateKeySetting</strong></td>
+<td><strong>PrivateKeySetting</strong></td>
+<td>The name of an app setting that contains the application server private key.</td>
+</tr>
+<tr>
+<td><strong>subjectSetting</strong></td>
+<td><strong>SubjectSetting</strong></td>
+<td>The name of an app setting that contains the contact information for the application server.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2018 - 2019 Tomasz Pęczek
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

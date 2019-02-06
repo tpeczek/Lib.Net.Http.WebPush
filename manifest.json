@@ -5,6 +5,78 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.html",
+          "hash": "WiLDrtLXXQ3wE+C4ghmJIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.html",
+          "hash": "ZiT6wPVrZT+Xbl28iqKb6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.html",
+          "hash": "btYKPphdALbmZ+yLoo98Gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html",
+          "hash": "2AU2rCurw/ggbD8BGs0niA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.html",
+          "hash": "FrP0/6gREMNToebUFAuHQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.html",
+          "hash": "pH/RhrSMw2N4GPKrAGevZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.yml",
       "output": {
         ".html": {
@@ -12,7 +84,7 @@
           "hash": "RixGCESSyYwCdiLf+TLsMA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -24,7 +96,7 @@
           "hash": "QqEgd9SjrOk2VR2Yabw1ng=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -36,7 +108,7 @@
           "hash": "40dWoC8YRXM9CP1Dw3e8Rg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -48,7 +120,7 @@
           "hash": "HxFqmK3YR2IhNS+Thb0J2g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -60,7 +132,7 @@
           "hash": "dvhBUDkZZXz8j8MZlshZYg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -72,7 +144,7 @@
           "hash": "TyWkMq6MO+UwyU0oPwJ6VQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -84,7 +156,7 @@
           "hash": "HaWQguGvPgVS4TD7sgP3EQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -96,7 +168,7 @@
           "hash": "IT5AhLOHvopI377mKnjW7w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -108,7 +180,7 @@
           "hash": "cGaqCFHUG3SzbhqcoN6yCw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushServiceClientException.html",
-          "hash": "h8+jJ+IP7FqmIEGPmpCspQ=="
+          "hash": "XqcaoOgF79j48t6155IoCQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -132,7 +204,7 @@
           "hash": "/TA7oBwFzZaB0lGHH75ejg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -144,7 +216,7 @@
           "hash": "NNRe1F0teW676iVW+jWyDw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,7 +225,22 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Thm8fXyOCsG9pH6ibwKRyQ=="
+          "hash": "zedHUQr+r9L58yDsq6LiEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/azure-functions-integration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/azure-functions-integration.html",
+          "hash": "JzAsAK7Ta9T2LzYMT38MtQ=="
         }
       },
       "is_incremental": false,
@@ -171,7 +258,7 @@
           "hash": "JJ3UPvuWEw6OWWUJ0SC42A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -180,10 +267,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "J2YcUkG8HD1tNe404To45A=="
+          "hash": "/vfb7wa/HF9JsPIRBG9e+Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -217,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "IxaYsv1mL5n2Yh6R5p2kyw=="
+          "hash": "1j0lGwKWbtDCuqjPvgKslQ=="
         }
       },
       "is_incremental": false,
@@ -227,34 +314,35 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
         "incrementalPhase": "postProcessing"
       },
       "processors": {}
