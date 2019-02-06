@@ -4,7 +4,8 @@
       "src": [
         {
           "files": [
-            "Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj"
+            "Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj",
+            "Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj"
           ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
           "src": ".."
@@ -12,7 +13,7 @@
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "netstandard1.6"
+        "TargetFramework": "netstandard2.0"
       }
     }
   ],
@@ -23,7 +24,8 @@
           "api/*.yml",
           "toc.md",
           "index.md",
-          "articles/performance-considerations.md"
+          "articles/performance-considerations.md",
+          "articles/azure-functions-integration.md"
         ]
       }
     ],

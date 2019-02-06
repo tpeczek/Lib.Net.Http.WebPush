@@ -23,7 +23,9 @@ The documentation is available [here](https://tpeczek.github.io/Lib.Net.Http.Web
 
 ## Demos
 
-There is a demo project available [here](https://github.com/tpeczek/Demo.AspNetCore.PushNotifications).
+There are several demo projects available:
+- [Web Push Notifications in ASP.NET Core Web Application](https://github.com/tpeczek/Demo.AspNetCore.PushNotifications)
+- [Web Push Notifications in Azure Functions](https://github.com/tpeczek/Demo.Azure.Funtions.PushNotifications)
 
 ## Donating
 
