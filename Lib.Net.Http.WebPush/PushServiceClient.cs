@@ -55,6 +55,11 @@ namespace Lib.Net.Http.WebPush
 
         #region Properties
         /// <summary>
+        /// Gets or sets the value indicating if client should automatically attempt to retry in case of 429 Too Many Requests.
+        /// </summary>
+        public bool AutoRetryAfter { get; set; } = true;
+
+        /// <summary>
         /// Gets or sets the default time (in seconds) for which the message should be retained by push service. It will be used when <see cref="PushMessage.TimeToLive"/> is not set.
         /// </summary>
         public int DefaultTimeToLive
@@ -178,7 +183,15 @@ namespace Lib.Net.Http.WebPush
 
             HttpResponseMessage pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 
-            HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequestResponse);
+            while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, out TimeSpan delay))
+            {
+                await Task.Delay(delay, cancellationToken);
+
+                pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication ?? DefaultAuthentication, authenticationScheme);
+                pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+            }
+
+            HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequest, pushMessageDeliveryRequestResponse, cancellationToken);
         }
 
         private HttpRequestMessage PreparePushMessageDeliveryRequest(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)
@@ -318,12 +331,41 @@ namespace Lib.Net.Http.WebPush
             return hash;
         }
 
-        private static void HandlePushMessageDeliveryRequestResponse(HttpResponseMessage pushMessageDeliveryRequestResponse)
+        private bool ShouldRetryAfter(HttpResponseMessage pushMessageDeliveryRequestResponse, out TimeSpan delay)
         {
-            if (pushMessageDeliveryRequestResponse.StatusCode != HttpStatusCode.Created)
+            delay = TimeSpan.MinValue;
+
+            if ((pushMessageDeliveryRequestResponse.StatusCode != (HttpStatusCode)429) || !AutoRetryAfter)
             {
-                throw new PushServiceClientException(pushMessageDeliveryRequestResponse.ReasonPhrase, pushMessageDeliveryRequestResponse.StatusCode);
+                return false;
             }
+
+            if ((pushMessageDeliveryRequestResponse.Headers.RetryAfter is null) || (!pushMessageDeliveryRequestResponse.Headers.RetryAfter.Date.HasValue && !pushMessageDeliveryRequestResponse.Headers.RetryAfter.Delta.HasValue))
+            {
+                return false;
+            }
+
+            if (pushMessageDeliveryRequestResponse.Headers.RetryAfter.Delta.HasValue)
+            {
+                delay = pushMessageDeliveryRequestResponse.Headers.RetryAfter.Delta.Value;
+            }
+
+            if (pushMessageDeliveryRequestResponse.Headers.RetryAfter.Date.HasValue)
+            {
+                delay = pushMessageDeliveryRequestResponse.Headers.RetryAfter.Date.Value.Subtract(DateTimeOffset.UtcNow);
+            }
+
+            return true;
+        }
+
+        private static void HandlePushMessageDeliveryRequestResponse(HttpRequestMessage pushMessageDeliveryRequest, HttpResponseMessage pushMessageDeliveryRequestResponse, CancellationToken cancellationToken)
+        {
+            if (pushMessageDeliveryRequestResponse.StatusCode == HttpStatusCode.Created)
+            {
+                return;
+            }
+
+            throw new PushServiceClientException(pushMessageDeliveryRequestResponse.ReasonPhrase, pushMessageDeliveryRequestResponse.StatusCode);
         }
         #endregion
     }
