@@ -1,3 +1,7 @@
+## Lib.Net.Http.EncryptedContentEncoding 2.1.0
+### Additions and Changes
+- Automatic support for retries in case of 429 Too Many Requests
+
 ## Lib.Net.Http.EncryptedContentEncoding 2.0.0
 ### Additions and Changes
 - Strong named the assembly
