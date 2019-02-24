@@ -4,11 +4,11 @@
       "src": [
         {
           "files": [
-            "Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj",
-            "Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj"
+            "src/Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj",
+            "src/Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj"
           ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
-          "src": ".."
+          "src": "../.."
         }
       ],
       "dest": "api",

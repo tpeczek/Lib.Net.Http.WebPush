@@ -143,9 +143,9 @@ DocProject/Help/Html2
 DocProject/Help/html
 
 # DocFX generated stuff
-DocFx.Net.Http.WebPush/log.txt
-DocFx.Net.Http.WebPush/api/
-DocFx.Net.Http.WebPush/wwwroot/
+docs/DocFx.Net.Http.WebPush/log.txt
+docs/DocFx.Net.Http.WebPush/api/
+docs/DocFx.Net.Http.WebPush/wwwroot/
 
 # Click-Once directory
 publish/

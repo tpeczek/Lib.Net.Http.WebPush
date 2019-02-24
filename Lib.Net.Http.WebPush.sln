@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Net.Http.WebPush", "Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj", "{79FDCAAA-6129-4FBB-B94E-7F7BE9A07C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Net.Http.WebPush", "src\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj", "{79FDCAAA-6129-4FBB-B94E-7F7BE9A07C7C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocFx.Net.Http.WebPush", "DocFx.Net.Http.WebPush\DocFx.Net.Http.WebPush.csproj", "{91C4FA65-7104-494C-9ED8-4B886BC2F7CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocFx.Net.Http.WebPush", "docs\DocFx.Net.Http.WebPush\DocFx.Net.Http.WebPush.csproj", "{91C4FA65-7104-494C-9ED8-4B886BC2F7CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark.Net.Http.WebPush", "Benchmark.Net.Http.WebPush\Benchmark.Net.Http.WebPush.csproj", "{0100508D-6C06-443B-9893-91F2F15DC920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark.Net.Http.WebPush", "benchmarks\Benchmark.Net.Http.WebPush\Benchmark.Net.Http.WebPush.csproj", "{0100508D-6C06-443B-9893-91F2F15DC920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Azure.WebJobs.Extensions.WebPush", "Lib.Azure.WebJobs.Extensions.WebPush\Lib.Azure.WebJobs.Extensions.WebPush.csproj", "{001A4013-EE58-428A-BD6C-49AC3A0CA6F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Azure.WebJobs.Extensions.WebPush", "src\Lib.Azure.WebJobs.Extensions.WebPush\Lib.Azure.WebJobs.Extensions.WebPush.csproj", "{001A4013-EE58-428A-BD6C-49AC3A0CA6F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0441724F-48F7-4863-BBA6-586E10182605}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{C24A444A-8A7A-4BE1-84C4-3E9755D5F9BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79FDCAAA-6129-4FBB-B94E-7F7BE9A07C7C} = {0441724F-48F7-4863-BBA6-586E10182605}
+		{91C4FA65-7104-494C-9ED8-4B886BC2F7CD} = {C24A444A-8A7A-4BE1-84C4-3E9755D5F9BE}
+		{0100508D-6C06-443B-9893-91F2F15DC920} = {10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}
+		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9} = {0441724F-48F7-4863-BBA6-586E10182605}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88535C7E-5564-4AC1-A41B-18DD05637943}
