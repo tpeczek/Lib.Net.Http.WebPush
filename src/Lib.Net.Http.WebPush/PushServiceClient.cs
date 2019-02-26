@@ -180,18 +180,29 @@ namespace Lib.Net.Http.WebPush
         public async Task RequestPushMessageDeliveryAsync(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme, CancellationToken cancellationToken)
         {
             HttpRequestMessage pushMessageDeliveryRequest = PreparePushMessageDeliveryRequest(subscription, message, authentication, authenticationScheme);
+            HttpResponseMessage pushMessageDeliveryRequestResponse = null;
 
-            HttpResponseMessage pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
-
-            while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, out TimeSpan delay))
+            try
             {
-                await Task.Delay(delay, cancellationToken);
-
-                pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication ?? DefaultAuthentication, authenticationScheme);
                 pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
-            }
 
-            HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequest, pushMessageDeliveryRequestResponse, cancellationToken);
+                while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, out TimeSpan delay))
+                {
+                    pushMessageDeliveryRequestResponse.Dispose();
+
+                    await Task.Delay(delay, cancellationToken);
+
+                    pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication ?? DefaultAuthentication, authenticationScheme);
+                    pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+                }
+
+                HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequest, pushMessageDeliveryRequestResponse, cancellationToken);
+            }
+            finally
+            {
+                pushMessageDeliveryRequest.Dispose();
+                pushMessageDeliveryRequestResponse?.Dispose();
+            }
         }
 
         private HttpRequestMessage PreparePushMessageDeliveryRequest(PushSubscription subscription, PushMessage message, VapidAuthentication authentication, VapidAuthenticationScheme authenticationScheme)
