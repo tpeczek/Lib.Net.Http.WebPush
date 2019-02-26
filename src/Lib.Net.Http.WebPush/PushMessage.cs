@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace Lib.Net.Http.WebPush
 {
@@ -8,6 +9,11 @@ namespace Lib.Net.Http.WebPush
     public class PushMessage
     {
         #region Fields
+        private static readonly string NOT_INSTANTIATED_THROUGH_STRING_BASED_CONSTRUCTOR = $"The {nameof(PushMessage)} instance hasn't been instantianted through string based constructor.";
+
+        private readonly bool _stringBased;
+
+        private string _content;
         private int? _timeToLive;
         #endregion
 
@@ -18,9 +24,36 @@ namespace Lib.Net.Http.WebPush
         public string Topic { get; set; }
 
         /// <summary>
+        /// Gets or sets the content when a <see cref="PushMessage"/> instance has been instantiated through <see cref="PushMessage.PushMessage(string)"/>.
+        /// </summary>
+        public string Content
+        {
+            get
+            {
+                if (!_stringBased)
+                {
+                    throw new InvalidOperationException(NOT_INSTANTIATED_THROUGH_STRING_BASED_CONSTRUCTOR);
+                }
+
+                return _content;
+            }
+
+            set
+            {
+                if (!_stringBased)
+                {
+                    throw new InvalidOperationException(NOT_INSTANTIATED_THROUGH_STRING_BASED_CONSTRUCTOR);
+                }
+
+                _content = value;
+                HttpContent = (_content is null) ? null : new StringContent(_content);
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the content.
         /// </summary>
-        public string Content { get; set; }
+        public HttpContent HttpContent { get; private set; }
 
         /// <summary>
         /// Gets or sets the time (in seconds) for which the message should be retained by push service.
@@ -53,7 +86,19 @@ namespace Lib.Net.Http.WebPush
         /// <param name="content">The content.</param>
         public PushMessage(string content)
         {
+            _stringBased = true;
             Content = content;
+            Urgency = PushMessageUrgency.Normal;
+        }
+
+        /// <summary>
+        /// Creates new instance of <see cref="PushMessage"/> class.
+        /// </summary>
+        /// <param name="content">The content.</param>
+        public PushMessage(HttpContent content)
+        {
+            _stringBased = false;
+            HttpContent = content;
             Urgency = PushMessageUrgency.Normal;
         }
         #endregion
