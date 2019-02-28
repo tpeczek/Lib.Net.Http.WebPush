@@ -3,7 +3,7 @@
     <Description>This package contains ASP.NET Core extensions for Web Push Protocol based client for Push Service.</Description>
     <Tags>AspNetCore WebPush</Tags>
     <Copyright>Copyright © 2019 Tomasz Pęczek</Copyright>
-    <VersionPrefix>1.1.0</VersionPrefix>
+    <VersionPrefix>1.2.0</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyTitle>Lib.AspNetCore.WebPush</AssemblyTitle>

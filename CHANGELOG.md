@@ -1,8 +1,12 @@
-## Lib.Net.Http.EncryptedContentEncoding 2.1.0
+## Lib.Net.Http.WebPush 2.2.0
+### Additions and Changes
+- Added HttpContent based constructor for PushMessage
+
+## Lib.Net.Http.WebPush 2.1.0
 ### Additions and Changes
 - Automatic support for retries in case of 429 Too Many Requests
 
-## Lib.Net.Http.EncryptedContentEncoding 2.0.0
+## Lib.Net.Http.WebPush 2.0.0
 ### Additions and Changes
 - Strong named the assembly
 - Changed default authentication scheme to VAPID
