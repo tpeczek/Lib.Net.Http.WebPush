@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{C24A444A-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.AspNetCore.WebPush", "src\Lib.AspNetCore.WebPush\Lib.AspNetCore.WebPush.csproj", "{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{91C4FA65-7104-494C-9ED8-4B886BC2F7CD} = {C24A444A-8A7A-4BE1-84C4-3E9755D5F9BE}
 		{0100508D-6C06-443B-9893-91F2F15DC920} = {10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9} = {0441724F-48F7-4863-BBA6-586E10182605}
+		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58} = {0441724F-48F7-4863-BBA6-586E10182605}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88535C7E-5564-4AC1-A41B-18DD05637943}

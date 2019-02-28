@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>This package contains ASP.NET Core extensions for Web Push Protocol based client for Push Service.</Description>
+    <Tags>AspNetCore WebPush</Tags>
+    <Copyright>Copyright © 2019 Tomasz Pęczek</Copyright>
+    <VersionPrefix>1.1.0</VersionPrefix>
+    <Authors>Tomasz Pęczek</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>Lib.AspNetCore.WebPush</AssemblyTitle>
+    <AssemblyName>Lib.AspNetCore.WebPush</AssemblyName>
+    <PackageId>Lib.AspNetCore.WebPush</PackageId>
+    <PackageTags>aspnetcore;webpush</PackageTags>
+    <PackageProjectUrl>https://github.com/tpeczek/Lib.Net.Http.WebPush</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/tpeczek/Lib.Net.Http.WebPush</RepositoryUrl>
+    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Lib.AspNetCore.WebPush.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj" />
+  </ItemGroup>
+</Project>
