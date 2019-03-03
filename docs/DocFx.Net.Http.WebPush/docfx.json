@@ -5,6 +5,7 @@
         {
           "files": [
             "src/Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj",
+            "src/Lib.AspNetCore.WebPush/Lib.AspNetCore.WebPush.csproj",
             "src/Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj"
           ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
@@ -25,6 +26,7 @@
           "toc.md",
           "index.md",
           "articles/performance-considerations.md",
+          "articles/aspnetcore-integration.md",
           "articles/azure-functions-integration.md"
         ]
       }
