@@ -1,6 +1,109 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Lib.AspNetCore.WebPush
+  name: Lib.AspNetCore.WebPush
+  href: api/Lib.AspNetCore.WebPush.html
+  commentId: N:Lib.AspNetCore.WebPush
+  fullName: Lib.AspNetCore.WebPush
+  nameWithType: Lib.AspNetCore.WebPush
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions
+  name: PushServiceClientOptions
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html
+  commentId: T:Lib.AspNetCore.WebPush.PushServiceClientOptions
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions
+  nameWithType: PushServiceClientOptions
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter
+  name: AutoRetryAfter
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_AutoRetryAfter
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter
+  nameWithType: PushServiceClientOptions.AutoRetryAfter
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter*
+  name: AutoRetryAfter
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_AutoRetryAfter_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.AutoRetryAfter
+  nameWithType: PushServiceClientOptions.AutoRetryAfter
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme
+  name: DefaultAuthenticationScheme
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_DefaultAuthenticationScheme
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme
+  nameWithType: PushServiceClientOptions.DefaultAuthenticationScheme
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme*
+  name: DefaultAuthenticationScheme
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_DefaultAuthenticationScheme_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultAuthenticationScheme
+  nameWithType: PushServiceClientOptions.DefaultAuthenticationScheme
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive
+  name: DefaultTimeToLive
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_DefaultTimeToLive
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive
+  nameWithType: PushServiceClientOptions.DefaultTimeToLive
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive*
+  name: DefaultTimeToLive
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_DefaultTimeToLive_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.DefaultTimeToLive
+  nameWithType: PushServiceClientOptions.DefaultTimeToLive
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration
+  name: Expiration
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_Expiration
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration
+  nameWithType: PushServiceClientOptions.Expiration
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration*
+  name: Expiration
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_Expiration_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.Expiration
+  nameWithType: PushServiceClientOptions.Expiration
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey
+  name: PrivateKey
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_PrivateKey
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey
+  nameWithType: PushServiceClientOptions.PrivateKey
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey*
+  name: PrivateKey
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_PrivateKey_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.PrivateKey
+  nameWithType: PushServiceClientOptions.PrivateKey
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey
+  name: PublicKey
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_PublicKey
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey
+  nameWithType: PushServiceClientOptions.PublicKey
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey*
+  name: PublicKey
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_PublicKey_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.PublicKey
+  nameWithType: PushServiceClientOptions.PublicKey
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
+  name: Subject
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_Subject
+  commentId: P:Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
+  nameWithType: PushServiceClientOptions.Subject
+- uid: Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject*
+  name: Subject
+  href: api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html#Lib_AspNetCore_WebPush_PushServiceClientOptions_Subject_
+  commentId: Overload:Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
+  isSpec: "True"
+  fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
+  nameWithType: PushServiceClientOptions.Subject
 - uid: Lib.Azure.WebJobs.Extensions.WebPush
   name: Lib.Azure.WebJobs.Extensions.WebPush
   href: api/Lib.Azure.WebJobs.Extensions.WebPush.html
@@ -378,6 +481,12 @@ references:
   commentId: T:Lib.Net.Http.WebPush.PushMessage
   fullName: Lib.Net.Http.WebPush.PushMessage
   nameWithType: PushMessage
+- uid: Lib.Net.Http.WebPush.PushMessage.#ctor(System.Net.Http.HttpContent)
+  name: PushMessage(HttpContent)
+  href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage__ctor_System_Net_Http_HttpContent_
+  commentId: M:Lib.Net.Http.WebPush.PushMessage.#ctor(System.Net.Http.HttpContent)
+  fullName: Lib.Net.Http.WebPush.PushMessage.PushMessage(System.Net.Http.HttpContent)
+  nameWithType: PushMessage.PushMessage(HttpContent)
 - uid: Lib.Net.Http.WebPush.PushMessage.#ctor(System.String)
   name: PushMessage(String)
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage__ctor_System_String_
@@ -404,6 +513,19 @@ references:
   isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushMessage.Content
   nameWithType: PushMessage.Content
+- uid: Lib.Net.Http.WebPush.PushMessage.HttpContent
+  name: HttpContent
+  href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_HttpContent
+  commentId: P:Lib.Net.Http.WebPush.PushMessage.HttpContent
+  fullName: Lib.Net.Http.WebPush.PushMessage.HttpContent
+  nameWithType: PushMessage.HttpContent
+- uid: Lib.Net.Http.WebPush.PushMessage.HttpContent*
+  name: HttpContent
+  href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_HttpContent_
+  commentId: Overload:Lib.Net.Http.WebPush.PushMessage.HttpContent
+  isSpec: "True"
+  fullName: Lib.Net.Http.WebPush.PushMessage.HttpContent
+  nameWithType: PushMessage.HttpContent
 - uid: Lib.Net.Http.WebPush.PushMessage.TimeToLive
   name: TimeToLive
   href: api/Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_TimeToLive
@@ -498,6 +620,19 @@ references:
   isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushServiceClient.PushServiceClient
   nameWithType: PushServiceClient.PushServiceClient
+- uid: Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter
+  name: AutoRetryAfter
+  href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_AutoRetryAfter
+  commentId: P:Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter
+  fullName: Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter
+  nameWithType: PushServiceClient.AutoRetryAfter
+- uid: Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter*
+  name: AutoRetryAfter
+  href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_AutoRetryAfter_
+  commentId: Overload:Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter
+  isSpec: "True"
+  fullName: Lib.Net.Http.WebPush.PushServiceClient.AutoRetryAfter
+  nameWithType: PushServiceClient.AutoRetryAfter
 - uid: Lib.Net.Http.WebPush.PushServiceClient.DefaultAuthentication
   name: DefaultAuthentication
   href: api/Lib.Net.Http.WebPush.PushServiceClient.html#Lib_Net_Http_WebPush_PushServiceClient_DefaultAuthentication
@@ -670,3 +805,63 @@ references:
   isSpec: "True"
   fullName: Lib.Net.Http.WebPush.PushSubscription.SetKey
   nameWithType: PushSubscription.SetKey
+- uid: Microsoft.Extensions.DependencyInjection
+  name: Microsoft.Extensions.DependencyInjection
+  href: api/Microsoft.Extensions.DependencyInjection.html
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions
+  name: PushServiceClientServiceCollectionExtensions
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html
+  commentId: T:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions
+  nameWithType: PushServiceClientServiceCollectionExtensions
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddDistributedVapidTokenCache(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddDistributedVapidTokenCache_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache*
+  name: AddDistributedVapidTokenCache
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddDistributedVapidTokenCache_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddMemoryVapidTokenCache(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddMemoryVapidTokenCache_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache*
+  name: AddMemoryVapidTokenCache
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddMemoryVapidTokenCache_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddPushServiceClient(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
+  name: AddPushServiceClient(IServiceCollection, Action<PushServiceClientOptions>)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Lib_AspNetCore_WebPush_PushServiceClientOptions__
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
+  name.vb: AddPushServiceClient(IServiceCollection, Action(Of PushServiceClientOptions))
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Lib.AspNetCore.WebPush.PushServiceClientOptions>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Lib.AspNetCore.WebPush.PushServiceClientOptions))
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action<PushServiceClientOptions>)
+  nameWithType.vb: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action(Of PushServiceClientOptions))
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient*
+  name: AddPushServiceClient
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient
+  nameWithType: PushServiceClientServiceCollectionExtensions.AddPushServiceClient
