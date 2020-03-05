@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Net.Http.WebPush", "src\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj", "{79FDCAAA-6129-4FBB-B94E-7F7BE9A07C7C}"
 EndProject
@@ -17,7 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{C24A444A-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.AspNetCore.WebPush", "src\Lib.AspNetCore.WebPush\Lib.AspNetCore.WebPush.csproj", "{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.AspNetCore.WebPush", "src\Lib.AspNetCore.WebPush\Lib.AspNetCore.WebPush.csproj", "{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AFD9AC51-E923-49DF-B000-721816ABDE37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Lib.Net.Http.WebPush", "test\Test.Lib.Net.Http.WebPush\Test.Lib.Net.Http.WebPush.csproj", "{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{0100508D-6C06-443B-9893-91F2F15DC920} = {10B2C3B8-F5B5-49D4-ADA2-48FE376B758A}
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9} = {0441724F-48F7-4863-BBA6-586E10182605}
 		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58} = {0441724F-48F7-4863-BBA6-586E10182605}
+		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3} = {AFD9AC51-E923-49DF-B000-721816ABDE37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88535C7E-5564-4AC1-A41B-18DD05637943}
