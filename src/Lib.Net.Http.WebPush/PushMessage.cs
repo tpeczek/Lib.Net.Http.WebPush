@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text;
 
 namespace Lib.Net.Http.WebPush
 {
@@ -46,7 +47,7 @@ namespace Lib.Net.Http.WebPush
                 }
 
                 _content = value;
-                HttpContent = (_content is null) ? null : new StringContent(_content);
+                HttpContent = (_content is null) ? null : new StringContent(_content, Encoding.UTF8);
             }
         }
 
