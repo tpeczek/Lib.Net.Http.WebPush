@@ -379,12 +379,10 @@ namespace Lib.Net.Http.WebPush
             }
 
             string reason = string.IsNullOrWhiteSpace(pushMessageDeliveryRequestResponse.ReasonPhrase) ?
-                                pushMessageDeliveryRequestResponse.StatusCode.ToString()
+                                $"Received unexpected response code: {pushMessageDeliveryRequestResponse.StatusCode}"
                                 : pushMessageDeliveryRequestResponse.ReasonPhrase;
             string content = await pushMessageDeliveryRequestResponse.Content.ReadAsStringAsync();
-            string details = string.IsNullOrWhiteSpace(content) ? string.Empty : $" Details: {content}";
-            string message = $"Unexpected Message Delivery Response: {reason}.{details}";
-            throw new PushServiceClientException(message, pushMessageDeliveryRequestResponse.StatusCode, pushMessageDeliveryRequestResponse.Headers, subscription);
+            throw new PushServiceClientException(reason, pushMessageDeliveryRequestResponse.StatusCode, pushMessageDeliveryRequestResponse.Headers, content, subscription);
         }
         #endregion
     }
