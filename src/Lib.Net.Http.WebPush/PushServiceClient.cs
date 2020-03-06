@@ -188,11 +188,12 @@ namespace Lib.Net.Http.WebPush
 
                 while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, out TimeSpan delay))
                 {
+                    pushMessageDeliveryRequest.Dispose();
                     pushMessageDeliveryRequestResponse.Dispose();
 
                     await Task.Delay(delay, cancellationToken);
 
-                    pushMessageDeliveryRequest = SetAuthentication(pushMessageDeliveryRequest, subscription, authentication ?? DefaultAuthentication, authenticationScheme);
+                    pushMessageDeliveryRequest = PreparePushMessageDeliveryRequest(subscription, message, authentication, authenticationScheme);
                     pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                 }
 

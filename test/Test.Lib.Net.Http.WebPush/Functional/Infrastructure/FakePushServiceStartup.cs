@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore;
 
 namespace Test.Lib.Net.Http.WebPush.Functional.Infrastructure
 {

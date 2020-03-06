@@ -1,12 +1,10 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
-using Test.Lib.Net.Http.WebPush.Functional.Infrastructure;
-using System;
-using Microsoft.AspNetCore.TestHost;
-using Lib.Net.Http.WebPush;
+﻿using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
+using Xunit;
+using Lib.Net.Http.WebPush;
 using Lib.Net.Http.WebPush.Authentication;
+using Test.Lib.Net.Http.WebPush.Functional.Infrastructure;
 
 namespace Test.Lib.Net.Http.WebPush.Functional
 {

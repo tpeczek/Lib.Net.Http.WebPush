@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 
 namespace Test.Lib.Net.Http.WebPush.Functional.Infrastructure
 {
