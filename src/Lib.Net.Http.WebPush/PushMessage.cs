@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Net.Http;
 
 namespace Lib.Net.Http.WebPush
@@ -13,7 +14,8 @@ namespace Lib.Net.Http.WebPush
 
         private readonly bool _stringBased;
 
-        private string _content;
+        private string _content = null;
+        private readonly HttpContent _httpContent = null;
         private int? _timeToLive;
         #endregion
 
@@ -46,14 +48,24 @@ namespace Lib.Net.Http.WebPush
                 }
 
                 _content = value;
-                HttpContent = (_content is null) ? null : new StringContent(_content);
             }
         }
 
         /// <summary>
         /// Gets or sets the content.
         /// </summary>
-        public HttpContent HttpContent { get; private set; }
+        public HttpContent HttpContent
+        {
+            get
+            {
+                if (_stringBased)
+                {
+                    return (_content is null) ? null : new StringContent(_content, Encoding.UTF8);
+                }
+
+                return _httpContent;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the time (in seconds) for which the message should be retained by push service.
@@ -98,7 +110,7 @@ namespace Lib.Net.Http.WebPush
         public PushMessage(HttpContent content)
         {
             _stringBased = false;
-            HttpContent = content;
+            _httpContent = content;
             Urgency = PushMessageUrgency.Normal;
         }
         #endregion

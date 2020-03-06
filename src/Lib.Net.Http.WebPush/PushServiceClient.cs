@@ -278,7 +278,8 @@ namespace Lib.Net.Http.WebPush
 
         private static HttpRequestMessage SetContent(HttpRequestMessage pushMessageDeliveryRequest, PushSubscription subscription, PushMessage message)
         {
-            if (message.HttpContent is null)
+            HttpContent httpContent = message.HttpContent;
+            if (httpContent is null)
             {
                 pushMessageDeliveryRequest.Content = null;
             }
@@ -288,7 +289,7 @@ namespace Lib.Net.Http.WebPush
                 byte[] applicationServerPublicKey = ((ECPublicKeyParameters)applicationServerKeys.Public).Q.GetEncoded(false);
 
                 pushMessageDeliveryRequest.Content = new Aes128GcmEncodedContent(
-                    message.HttpContent,
+                    httpContent,
                     GetKeyingMaterial(subscription, applicationServerKeys.Private, applicationServerPublicKey),
                     applicationServerPublicKey,
                     CONTENT_RECORD_SIZE
