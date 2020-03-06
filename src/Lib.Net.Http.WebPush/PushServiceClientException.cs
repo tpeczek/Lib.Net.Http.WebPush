@@ -17,17 +17,27 @@ namespace Lib.Net.Http.WebPush
         /// <summary>
         /// Gets or sets the HTTP Response Headers of the push service response.
         /// </summary>
-        public HttpResponseHeaders Headers { get; set; }
+        public HttpResponseHeaders Headers { get; }
 
         /// <summary>
         /// Gets or sets the HTTP Response body of the push service response.
         /// </summary>
-        public string Body { get; set; }
+        public string Body { get; }
 
         /// <summary>
         /// Gets or sets the PushSubscription that initiated the push service response.
         /// </summary>
-        public PushSubscription PushSubscription { get; set; }
+        public PushSubscription PushSubscription { get; }
+
+        /// <summary>
+        /// Creates new instance of <see cref="PushServiceClientException"/> class.
+        /// </summary>
+        /// <param name="message">The message that describes the current exception.</param>
+        /// <param name="statusCode">The status code of the push service response.</param>
+        public PushServiceClientException(string message, HttpStatusCode statusCode)
+            : this(message, statusCode, null, null, null)
+        {
+        }
 
         /// <summary>
         /// Creates new instance of <see cref="PushServiceClientException"/> class.
