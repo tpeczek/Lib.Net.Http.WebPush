@@ -197,7 +197,7 @@ namespace Lib.Net.Http.WebPush
                     pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                 }
 
-                HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequest, pushMessageDeliveryRequestResponse, cancellationToken);
+                await HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequestResponse, subscription);
             }
             finally
             {
@@ -371,14 +371,18 @@ namespace Lib.Net.Http.WebPush
             return true;
         }
 
-        private static void HandlePushMessageDeliveryRequestResponse(HttpRequestMessage pushMessageDeliveryRequest, HttpResponseMessage pushMessageDeliveryRequestResponse, CancellationToken cancellationToken)
+        private static async Task HandlePushMessageDeliveryRequestResponse(HttpResponseMessage pushMessageDeliveryRequestResponse, PushSubscription subscription)
         {
             if (pushMessageDeliveryRequestResponse.StatusCode == HttpStatusCode.Created)
             {
                 return;
             }
 
-            throw new PushServiceClientException(pushMessageDeliveryRequestResponse.ReasonPhrase, pushMessageDeliveryRequestResponse.StatusCode);
+            string reason = string.IsNullOrWhiteSpace(pushMessageDeliveryRequestResponse.ReasonPhrase) ?
+                                $"Received unexpected response code: {pushMessageDeliveryRequestResponse.StatusCode}"
+                                : pushMessageDeliveryRequestResponse.ReasonPhrase;
+            string content = await pushMessageDeliveryRequestResponse.Content.ReadAsStringAsync();
+            throw new PushServiceClientException(reason, pushMessageDeliveryRequestResponse.StatusCode, pushMessageDeliveryRequestResponse.Headers, content, subscription);
         }
         #endregion
     }
