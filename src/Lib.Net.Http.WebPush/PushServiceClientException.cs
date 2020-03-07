@@ -9,26 +9,29 @@ namespace Lib.Net.Http.WebPush
     /// </summary>
     public class PushServiceClientException : Exception
     {
+        #region Properties
         /// <summary>
-        /// Gets or sets the status code of the push service response.
+        /// Gets the status code of the push service response.
         /// </summary>
         public HttpStatusCode StatusCode { get; }
 
         /// <summary>
-        /// Gets or sets the HTTP Response Headers of the push service response.
+        /// Gets the headers of the push service response.
         /// </summary>
         public HttpResponseHeaders Headers { get; }
 
         /// <summary>
-        /// Gets or sets the HTTP Response body of the push service response.
+        /// Gets the body of the push service response.
         /// </summary>
         public string Body { get; }
 
         /// <summary>
-        /// Gets or sets the PushSubscription that initiated the push service response.
+        /// Gets the <see cref="WebPush.PushSubscription"/> that initiated the push service request.
         /// </summary>
         public PushSubscription PushSubscription { get; }
+        #endregion
 
+        #region Constructors
         /// <summary>
         /// Creates new instance of <see cref="PushServiceClientException"/> class.
         /// </summary>
@@ -46,7 +49,7 @@ namespace Lib.Net.Http.WebPush
         /// <param name="statusCode">The status code of the push service response.</param>
         /// <param name="headers">The headers of the push service response.</param>
         /// <param name="body">The body of the push service response.</param>
-        /// <param name="pushSubscription">The push subscription that initiated the push service response.</param>
+        /// <param name="pushSubscription">The <see cref="WebPush.PushSubscription"/> that initiated the push service request.</param>
         public PushServiceClientException(string message, HttpStatusCode statusCode, HttpResponseHeaders headers, string body, PushSubscription pushSubscription)
             : base(message)
         {
@@ -55,5 +58,6 @@ namespace Lib.Net.Http.WebPush
             Body = body;
             PushSubscription = pushSubscription;
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Xunit;
@@ -10,8 +11,11 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 {
     public class PushMessageDeliveryTests : IClassFixture<FakePushServiceApplicationFactory>
     {
-		private const string CREATED_ENDPOINT = "http://localhost/push-created";
+        #region Fields
+        private const string CREATED_ENDPOINT = "http://localhost/push-created";
 		private const string RETRY_AFTER_ENDPOINT = "http://localhost/push-retry-after";
+		private const string CLIENT_ERROR_ENDPOINT = "http://localhost/push-client-error";
+
 		private const string WALRUS_CONTENT = "I am the walrus";
 
 		private readonly PushSubscription _pushSubscription = new PushSubscription
@@ -29,21 +33,34 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 		};
 
 		private readonly FakePushServiceApplicationFactory _pushServiceFactory;
+        #endregion
 
+        #region Constructor
         public PushMessageDeliveryTests(FakePushServiceApplicationFactory pushServiceFactory)
         {
 			_pushServiceFactory = pushServiceFactory;
         }
+		#endregion
 
+		#region Prepare SUT
+		private PushServiceClient PreparePushServiceClient()
+		{
+			return new PushServiceClient(_pushServiceFactory.CreateClient())
+			{
+				DefaultAuthentication = _vapidAuthentication
+			};
+		}
+		#endregion
+
+		#region Tests
 		[Fact]
-		public async Task DeliversPushMessage()
+		public async Task PushService_NoError_DeliversPushMessage()
 		{
 			_pushSubscription.Endpoint = CREATED_ENDPOINT;
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
-			PushServiceClient pushClient = new PushServiceClient(_pushServiceFactory.CreateClient());
-			pushClient.DefaultAuthentication = _vapidAuthentication;
+			PushServiceClient pushClient = PreparePushServiceClient();
 
 			Exception pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
 			{
@@ -54,14 +71,13 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 		}
 
 		[Fact]
-		public async Task DeliversPushMessageWithRetryAfter()
+		public async Task PushService_TooManyRequests_DeliversPushMessageWithRetryAfter()
 		{
 			_pushSubscription.Endpoint = RETRY_AFTER_ENDPOINT;
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
-			PushServiceClient pushClient = new PushServiceClient(_pushServiceFactory.CreateClient());
-			pushClient.DefaultAuthentication = _vapidAuthentication;
+			PushServiceClient pushClient = PreparePushServiceClient();
 
 			Exception pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
 			{
@@ -70,5 +86,89 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 
 			Assert.Null(pushMessageDeliveryException);
 		}
+
+		[Fact]
+		public async Task PushService_OtherClientError_ThrowsPushServiceClientException()
+		{
+			_pushSubscription.Endpoint = CLIENT_ERROR_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			await Assert.ThrowsAsync<PushServiceClientException>(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			});
+		}
+
+		[Fact]
+		public async Task PushService_OtherClientError_PushServiceClientExceptionContainsResponseStatusCode()
+		{
+			_pushSubscription.Endpoint = CLIENT_ERROR_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			PushServiceClientException pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			}) as PushServiceClientException;
+
+			Assert.Equal(FakePushServiceStartup.OTHER_CLIENT_ERROR_STATUS_CODE, (int)pushMessageDeliveryException.StatusCode);
+		}
+
+		[Fact]
+		public async Task PushService_OtherClientError_PushServiceClientExceptionContainsResponseReasonPhrase()
+		{
+			_pushSubscription.Endpoint = CLIENT_ERROR_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			PushServiceClientException pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			}) as PushServiceClientException;
+
+			Assert.Equal(FakePushServiceStartup.OTHER_CLIENT_ERROR_REASON_PHRASE, pushMessageDeliveryException.Message);
+		}
+
+		[Fact]
+		public async Task PushService_OtherClientError_PushServiceClientExceptionContainsResponseBody()
+		{
+			_pushSubscription.Endpoint = CLIENT_ERROR_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			PushServiceClientException pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			}) as PushServiceClientException;
+
+			Assert.Equal(FakePushServiceStartup.OTHER_CLIENT_ERROR_BODY, pushMessageDeliveryException.Body);
+		}
+
+		[Fact]
+		public async Task PushService_OtherClientError_PushServiceClientExceptionContainsPushSubscription()
+		{
+			_pushSubscription.Endpoint = CLIENT_ERROR_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			PushServiceClientException pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			}) as PushServiceClientException;
+
+			Assert.Equal(_pushSubscription, pushMessageDeliveryException.PushSubscription);
+		}
+		#endregion
 	}
 }
