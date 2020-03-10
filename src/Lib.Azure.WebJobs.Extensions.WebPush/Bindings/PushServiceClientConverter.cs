@@ -19,13 +19,21 @@ namespace Lib.Azure.WebJobs.Extensions.WebPush.Bindings
 
         public PushServiceClient Convert(PushServiceAttribute attribute)
         {
-            return new PushServiceClient(_httpClientFactory.CreateClient())
+            PushServiceClient pushServiceClient = new PushServiceClient(_httpClientFactory.CreateClient())
             {
                 DefaultAuthentication = new VapidAuthentication(ResolveAuthenticationProperty(attribute.PublicKeySetting, _options?.PublicKey), ResolveAuthenticationProperty(attribute.PrivateKeySetting, _options?.PrivateKey))
                 {
                     Subject = ResolveAuthenticationProperty(attribute.SubjectSetting, _options?.Subject)
-                }
+                },
+                AutoRetryAfter = attribute.AutoRetryAfter
             };
+
+            if (attribute.DefaultTimeToLive.HasValue)
+            {
+                pushServiceClient.DefaultTimeToLive = attribute.DefaultTimeToLive.Value;
+            }
+
+            return pushServiceClient;
         }
 
         private static string ResolveAuthenticationProperty(string attributeValue, string optionsValue)

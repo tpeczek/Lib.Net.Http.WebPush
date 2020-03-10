@@ -34,5 +34,15 @@ namespace Lib.Azure.WebJobs.Extensions.WebPush.Bindings
         /// </summary>
         [AppSetting]
         public string SubjectSetting { get; set; }
+
+        /// <summary>
+        /// The value indicating if client should automatically attempt to retry in case of 429 Too Many Requests.
+        /// </summary>
+        public bool AutoRetryAfter { get; set; } = true;
+
+        /// <summary>
+        /// The default time (in seconds) for which the message should be retained by push service. It will be used when <see cref="PushMessage.TimeToLive"/> is not set.
+        /// </summary>
+        public int? DefaultTimeToLive { get; set; }
     }
 }
