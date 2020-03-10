@@ -25,7 +25,8 @@ namespace Lib.Azure.WebJobs.Extensions.WebPush.Bindings
                 {
                     Subject = ResolveAuthenticationProperty(attribute.SubjectSetting, _options?.Subject)
                 },
-                AutoRetryAfter = attribute.AutoRetryAfter
+                AutoRetryAfter = attribute.AutoRetryAfter,
+                MaxRetriesAfter = attribute.MaxRetriesAfter
             };
 
             if (attribute.DefaultTimeToLive.HasValue)

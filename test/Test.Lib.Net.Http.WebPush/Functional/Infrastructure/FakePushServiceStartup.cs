@@ -31,7 +31,7 @@ namespace Test.Lib.Net.Http.WebPush.Functional.Infrastructure
                         return Task.CompletedTask;
                     });
 
-                    endpoints.MapPost("/push-retry-after", context =>
+                    endpoints.MapPost("/push-retry-after-once", context =>
                     {
                         if (shouldRetryAfter)
                         {
@@ -46,6 +46,14 @@ namespace Test.Lib.Net.Http.WebPush.Functional.Infrastructure
 
                             shouldRetryAfter = true;
                         }
+
+                        return Task.CompletedTask;
+                    });
+
+                    endpoints.MapPost("/push-retry-after-always", context =>
+                    {
+                        context.Response.StatusCode = 429;
+                        context.Response.Headers.Add("Retry-After", "5");
 
                         return Task.CompletedTask;
                     });

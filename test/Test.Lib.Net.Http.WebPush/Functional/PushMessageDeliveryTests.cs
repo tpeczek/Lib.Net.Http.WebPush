@@ -13,7 +13,8 @@ namespace Test.Lib.Net.Http.WebPush.Functional
     {
         #region Fields
         private const string CREATED_ENDPOINT = "http://localhost/push-created";
-		private const string RETRY_AFTER_ENDPOINT = "http://localhost/push-retry-after";
+		private const string RETRY_AFTER_ONCE_ENDPOINT = "http://localhost/push-retry-after-once";
+		private const string RETRY_AFTER_ALWAYS_ENDPOINT = "http://localhost/push-retry-after-always";
 		private const string CLIENT_ERROR_ENDPOINT = "http://localhost/push-client-error";
 
 		private const string WALRUS_CONTENT = "I am the walrus";
@@ -73,7 +74,7 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 		[Fact]
 		public async Task PushService_TooManyRequests_DeliversPushMessageWithRetryAfter()
 		{
-			_pushSubscription.Endpoint = RETRY_AFTER_ENDPOINT;
+			_pushSubscription.Endpoint = RETRY_AFTER_ONCE_ENDPOINT;
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
@@ -85,6 +86,40 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 			});
 
 			Assert.Null(pushMessageDeliveryException);
+		}
+
+		[Fact]
+		public async Task PushService_TooManyRequests_MaxRetriesAfter_ThrowsPushServiceClientException()
+		{
+			_pushSubscription.Endpoint = RETRY_AFTER_ALWAYS_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+			pushClient.MaxRetriesAfter = 1;
+
+			await Assert.ThrowsAsync<PushServiceClientException>(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			});
+		}
+
+		[Fact]
+		public async Task PushService_TooManyRequests_MaxRetriesAfter_PushServiceClientExceptionStatusCodeIs429()
+		{
+			_pushSubscription.Endpoint = RETRY_AFTER_ALWAYS_ENDPOINT;
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+			pushClient.MaxRetriesAfter = 1;
+
+			PushServiceClientException pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(_pushSubscription, pushMessage);
+			}) as PushServiceClientException;
+
+			Assert.Equal(429, (int)pushMessageDeliveryException.StatusCode);
 		}
 
 		[Fact]

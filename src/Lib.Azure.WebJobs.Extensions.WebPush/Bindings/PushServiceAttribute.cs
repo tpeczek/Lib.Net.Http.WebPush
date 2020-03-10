@@ -41,6 +41,11 @@ namespace Lib.Azure.WebJobs.Extensions.WebPush.Bindings
         public bool AutoRetryAfter { get; set; } = true;
 
         /// <summary>
+        /// The value indicating the maximum number of automatic attempts to retry in case of 429 Too Many Requests (<= 0 means unlimited).
+        /// </summary>
+        public int MaxRetriesAfter { get; set; } = 0;
+
+        /// <summary>
         /// The default time (in seconds) for which the message should be retained by push service. It will be used when <see cref="PushMessage.TimeToLive"/> is not set.
         /// </summary>
         public int? DefaultTimeToLive { get; set; }

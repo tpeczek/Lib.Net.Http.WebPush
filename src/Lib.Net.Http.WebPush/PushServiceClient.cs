@@ -60,6 +60,11 @@ namespace Lib.Net.Http.WebPush
         public bool AutoRetryAfter { get; set; } = true;
 
         /// <summary>
+        /// Gets or sets the value indicating the maximum number of automatic attempts to retry in case of 429 Too Many Requests (<= 0 means unlimited).
+        /// </summary>
+        public int MaxRetriesAfter { get; set; } = 0;
+
+        /// <summary>
         /// Gets or sets the default time (in seconds) for which the message should be retained by push service. It will be used when <see cref="PushMessage.TimeToLive"/> is not set.
         /// </summary>
         public int DefaultTimeToLive
@@ -186,7 +191,8 @@ namespace Lib.Net.Http.WebPush
             {
                 pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 
-                while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, out TimeSpan delay))
+                int retriesAfterCount = 0;
+                while (ShouldRetryAfter(pushMessageDeliveryRequestResponse, retriesAfterCount, out TimeSpan delay))
                 {
                     pushMessageDeliveryRequest.Dispose();
                     pushMessageDeliveryRequestResponse.Dispose();
@@ -195,6 +201,8 @@ namespace Lib.Net.Http.WebPush
 
                     pushMessageDeliveryRequest = PreparePushMessageDeliveryRequest(subscription, message, authentication, authenticationScheme);
                     pushMessageDeliveryRequestResponse = await _httpClient.SendAsync(pushMessageDeliveryRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+
+                    retriesAfterCount++;
                 }
 
                 await HandlePushMessageDeliveryRequestResponse(pushMessageDeliveryRequestResponse, subscription);
@@ -344,11 +352,16 @@ namespace Lib.Net.Http.WebPush
             return hash;
         }
 
-        private bool ShouldRetryAfter(HttpResponseMessage pushMessageDeliveryRequestResponse, out TimeSpan delay)
+        private bool ShouldRetryAfter(HttpResponseMessage pushMessageDeliveryRequestResponse, int retriesAfterCount, out TimeSpan delay)
         {
             delay = TimeSpan.MinValue;
 
             if ((pushMessageDeliveryRequestResponse.StatusCode != (HttpStatusCode)429) || !AutoRetryAfter)
+            {
+                return false;
+            }
+
+            if ((MaxRetriesAfter > 0) && (retriesAfterCount >= MaxRetriesAfter))
             {
                 return false;
             }

@@ -83,6 +83,7 @@ namespace Microsoft.Extensions.DependencyInjection
                     }
 
                     pushServiceClient.AutoRetryAfter = optionsValue.AutoRetryAfter;
+                    pushServiceClient.MaxRetriesAfter = optionsValue.MaxRetriesAfter;
                 }
 
                 return pushServiceClient;
