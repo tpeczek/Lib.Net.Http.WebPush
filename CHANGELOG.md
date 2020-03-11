@@ -1,6 +1,15 @@
+## Lib.Net.Http.WebPush 2.3.0
+### Bug Fixes
+- Fix for incorrect reuse of internally created `HttpContent`
+- Fix for incorrect reuse of internally created `HttpRequestMessage`
+### Additions and Changes
+- Added context information to `PushServiceClientException` (thank you @techfg)
+- Added setting for maximum limit of automatic retries in case of 429 Too Many Requests
+- Exposed `AutoRetryAfter`, `DefaultTimeToLive`, and `MaxRetriesAfter` in Azure Functions binding
+
 ## Lib.Net.Http.WebPush 2.2.0
 ### Additions and Changes
-- Added HttpContent based constructor for PushMessage
+- Added `HttpContent` based constructor for `PushMessage`
 
 ## Lib.Net.Http.WebPush 2.1.0
 ### Additions and Changes
