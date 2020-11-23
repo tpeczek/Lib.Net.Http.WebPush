@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DocFx.Net.Http.WebPush
@@ -9,7 +9,7 @@ namespace DocFx.Net.Http.WebPush
         public void ConfigureServices(IServiceCollection services)
         { }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             app.UseDefaultFiles()
                 .UseStaticFiles();

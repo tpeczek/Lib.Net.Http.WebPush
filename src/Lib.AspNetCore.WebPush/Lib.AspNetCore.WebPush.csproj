@@ -5,7 +5,7 @@
     <Copyright>Copyright © 2019 - 2020 Tomasz Pęczek</Copyright>
     <VersionPrefix>1.3.0</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
-    <TargetFrameworks>netcoreapp2.1;netcoreapp3.0;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0;net461</TargetFrameworks>
     <AssemblyTitle>Lib.AspNetCore.WebPush</AssemblyTitle>
     <AssemblyName>Lib.AspNetCore.WebPush</AssemblyName>
     <PackageId>Lib.AspNetCore.WebPush</PackageId>
@@ -24,11 +24,11 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Lib.AspNetCore.WebPush.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
+  <ItemGroup Condition="('$(TargetFramework)' == 'netcoreapp2.1') Or ('$(TargetFramework)' == 'net461')">
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+  <ItemGroup Condition="('$(TargetFramework)' != 'netcoreapp2.1') And ('$(TargetFramework)' != 'net461')">
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
