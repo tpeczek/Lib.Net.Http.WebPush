@@ -66,9 +66,15 @@ namespace Benchmark.Net.Http.WebPush
 
         #region Benchmarks
         [Benchmark]
-        public WebPushSchemeHeadersValues VapidAuthentication_GetVapidSchemeAuthenticationHeaderValueParameter()
+        public void VapidAuthentication_GetWebPushSchemeHeadersValues()
         {
-            return _vapidAuthentication.GetWebPushSchemeHeadersValues("https://fcm.googleapis.com");
+            WebPushSchemeHeadersValues webPushSchemeHeadersValues = _vapidAuthentication.GetWebPushSchemeHeadersValues("https://fcm.googleapis.com");
+        }
+
+        [Benchmark]
+        public void VapidAuthentication_GetVapidSchemeAuthenticationHeaderValueParameter()
+        {
+            string vapidSchemeAuthenticationHeaderValueParameter = _vapidAuthentication.GetVapidSchemeAuthenticationHeaderValueParameter("https://fcm.googleapis.com");
         }
 
         [Benchmark]

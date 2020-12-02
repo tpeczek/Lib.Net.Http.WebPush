@@ -13,8 +13,6 @@ namespace Lib.Net.Http.WebPush.Internals
     internal static class ECKeyHelper
     {
         private const string PRIVATE_DER_IDENTIFIER = "1.2.840.10045.3.1.7";
-        private const string PRIVATE_PEM_KEY_PREFIX = "-----BEGIN EC PRIVATE KEY-----\n";
-        private const string PRIVATE_PEM_KEY_SUFFIX = "\n-----END EC PRIVATE KEY----";
 
         private const string PUBLIC_DER_IDENTIFIER = "1.2.840.10045.2.1";
         private const string PUBLIC_PEM_KEY_PREFIX = "-----BEGIN PUBLIC KEY-----\n";
@@ -22,24 +20,6 @@ namespace Lib.Net.Http.WebPush.Internals
 
         private const string P256_CURVE_NAME = "P-256";
         private const string ECDH_ALGORITHM_NAME = "ECDH";
-
-        internal static ECPrivateKeyParameters GetECPrivateKeyParameters(byte[] privateKey)
-        {
-            Asn1Object derSequence = new DerSequence(
-                new DerInteger(1),
-                new DerOctetString(privateKey),
-                new DerTaggedObject(0, new DerObjectIdentifier(PRIVATE_DER_IDENTIFIER))
-            );
-
-            string pemKey = PRIVATE_PEM_KEY_PREFIX
-                + Convert.ToBase64String(derSequence.GetDerEncoded())
-                + PRIVATE_PEM_KEY_SUFFIX;
-
-            PemReader pemKeyReader = new PemReader(new StringReader(pemKey));
-            AsymmetricCipherKeyPair keyPair = (AsymmetricCipherKeyPair)pemKeyReader.ReadObject();
-
-            return (ECPrivateKeyParameters)keyPair.Private;
-        }
 
         internal static ECPublicKeyParameters GetECPublicKeyParameters(byte[] publicKey)
         {
