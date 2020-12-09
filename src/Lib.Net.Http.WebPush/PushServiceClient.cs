@@ -8,9 +8,6 @@ using System.Globalization;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 using Lib.Net.Http.EncryptedContentEncoding;
 using Lib.Net.Http.WebPush.Internals;
 using Lib.Net.Http.WebPush.Authentication;
@@ -294,13 +291,16 @@ namespace Lib.Net.Http.WebPush
             }
             else
             {
-                AsymmetricCipherKeyPair applicationServerKeys = ECKeyHelper.GenerateAsymmetricCipherKeyPair();
-                byte[] applicationServerPublicKey = ((ECPublicKeyParameters)applicationServerKeys.Public).Q.GetEncoded(false);
+                ECDHAgreement keyAgreement = ECDHAgreementCalculator.CalculateAgreement
+                (
+                    UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.P256DH)),
+                    UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.Auth))
+                );
 
                 pushMessageDeliveryRequest.Content = new Aes128GcmEncodedContent(
                     httpContent,
-                    GetKeyingMaterial(subscription, applicationServerKeys.Private, applicationServerPublicKey),
-                    applicationServerPublicKey,
+                    GetKeyingMaterial(subscription, keyAgreement),
+                    keyAgreement.PublicKey,
                     CONTENT_RECORD_SIZE
                 );
             }
@@ -308,17 +308,12 @@ namespace Lib.Net.Http.WebPush
             return pushMessageDeliveryRequest;
         }
 
-        private static byte[] GetKeyingMaterial(PushSubscription subscription, AsymmetricKeyParameter applicationServerPrivateKey, byte[] applicationServerPublicKey)
+        private static byte[] GetKeyingMaterial(PushSubscription subscription, ECDHAgreement keyAgreement)
         {
-            IBasicAgreement ecdhAgreement = AgreementUtilities.GetBasicAgreement("ECDH");
-            ecdhAgreement.Init(applicationServerPrivateKey);
-
             byte[] userAgentPublicKey = UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.P256DH));
-            byte[] authenticationSecret = UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.Auth));
-            byte[] sharedSecret = ecdhAgreement.CalculateAgreement(ECKeyHelper.GetECPublicKeyParameters(userAgentPublicKey)).ToByteArrayUnsigned();
-            byte[] sharedSecretHash = HmacSha256(authenticationSecret, sharedSecret);
-            byte[] infoParameter = GetKeyingMaterialInfoParameter(userAgentPublicKey, applicationServerPublicKey);
-            byte[] keyingMaterial = HmacSha256(sharedSecretHash, infoParameter);
+            
+            byte[] infoParameter = GetKeyingMaterialInfoParameter(userAgentPublicKey, keyAgreement.PublicKey);
+            byte[] keyingMaterial = HmacSha256(keyAgreement.SharedSecretHmac, infoParameter);
 
             return keyingMaterial;
         }
