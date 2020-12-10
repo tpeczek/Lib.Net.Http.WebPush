@@ -1,4 +1,4 @@
-﻿#if !NET451 && !NET461 && !NETSTANDARD1_6 && !NETSTANDARD2_0
+﻿#if !NET451 && !NET461 && !NETSTANDARD2_0
 using System;
 using System.Formats.Asn1;
 using System.Security.Cryptography;
