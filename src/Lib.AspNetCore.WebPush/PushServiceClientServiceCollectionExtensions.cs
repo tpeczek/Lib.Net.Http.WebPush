@@ -17,6 +17,21 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         private const string HTTP_CLIENT_NAME = "Lib.AspNetCore.WebPush";
 
+        private class VapidAuthenticationProvider : IDisposable
+        {
+            public VapidAuthentication VapidAuthentication { get; }
+
+            public VapidAuthenticationProvider(VapidAuthentication vapidAuthentication)
+            {
+                VapidAuthentication = vapidAuthentication;
+            }
+
+            public void Dispose()
+            {
+                VapidAuthentication?.Dispose();
+            }
+        }
+
         /// <summary>
         /// Adds the <see cref="IMemoryCache"/> based implementation of <see cref="IVapidTokenCache"/>.
         /// </summary>
@@ -51,6 +66,34 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddHttpClient(HTTP_CLIENT_NAME);
 
+            services.AddSingleton(serviceProvider =>
+            {
+                VapidAuthentication vapidAuthentication = null;
+
+                IOptions<PushServiceClientOptions> options = serviceProvider.GetRequiredService<IOptions<PushServiceClientOptions>>();
+                if (options.Value != null)
+                {
+                    PushServiceClientOptions optionsValue = options.Value;
+
+                    if (!String.IsNullOrWhiteSpace(optionsValue.PrivateKey) && !String.IsNullOrWhiteSpace(optionsValue.PublicKey))
+                    {
+                        vapidAuthentication = new VapidAuthentication(optionsValue.PublicKey, optionsValue.PrivateKey)
+                        {
+                            Subject = optionsValue.Subject
+                        };
+
+                        if (optionsValue.Expiration.HasValue)
+                        {
+                            vapidAuthentication.Expiration = optionsValue.Expiration.Value;
+                        }
+
+                        vapidAuthentication.TokenCache = serviceProvider.GetService<IVapidTokenCache>();
+                    }
+                }
+
+                return new VapidAuthenticationProvider(vapidAuthentication);
+            });
+
             services.AddTransient(serviceProvider =>
             {
                 IHttpClientFactory clientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
@@ -61,20 +104,12 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     PushServiceClientOptions optionsValue = options.Value;
 
-                    if (!String.IsNullOrWhiteSpace(optionsValue.PrivateKey) && !String.IsNullOrWhiteSpace(optionsValue.PublicKey))
+                    VapidAuthenticationProvider vapidAuthenticationProvider = serviceProvider.GetRequiredService<VapidAuthenticationProvider>();
+                    if (vapidAuthenticationProvider.VapidAuthentication != null)
                     {
-                        pushServiceClient.DefaultAuthentication = new VapidAuthentication(optionsValue.PublicKey, optionsValue.PrivateKey)
-                        {
-                            Subject = optionsValue.Subject
-                        };
-
-                        if (optionsValue.Expiration.HasValue)
-                        {
-                            pushServiceClient.DefaultAuthentication.Expiration = optionsValue.Expiration.Value;
-                        }
-
-                        pushServiceClient.DefaultAuthentication.TokenCache = serviceProvider.GetService<IVapidTokenCache>();
+                        pushServiceClient.DefaultAuthentication = vapidAuthenticationProvider.VapidAuthentication;
                     }
+
                     pushServiceClient.DefaultAuthenticationScheme = optionsValue.DefaultAuthenticationScheme;
 
                     if (optionsValue.DefaultTimeToLive.HasValue)

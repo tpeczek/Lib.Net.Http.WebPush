@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Globalization;
-using System.Security.Cryptography;
-using Org.BouncyCastle.Math;
-using Org.BouncyCastle.Crypto.Signers;
 using Lib.Net.Http.WebPush.Internals;
 
 namespace Lib.Net.Http.WebPush.Authentication
@@ -11,7 +8,7 @@ namespace Lib.Net.Http.WebPush.Authentication
     /// <summary>
     /// Class which provides Voluntary Application Server Identification (VAPID) headers values.
     /// </summary>
-    public class VapidAuthentication
+    public class VapidAuthentication : IDisposable
     {
         #region Structures
         /// <summary>
@@ -63,7 +60,7 @@ namespace Lib.Net.Http.WebPush.Authentication
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
         private static readonly string _jwtHeaderSegment = UrlBase64Converter.ToUrlBase64String(Encoding.UTF8.GetBytes(JWT_HEADER));
 
-        private ECDsaSigner _jwtSigner;
+        private ES256Signer _jwtSigner;
         #endregion
 
         #region Properties
@@ -141,8 +138,7 @@ namespace Lib.Net.Http.WebPush.Authentication
 
                 _privateKey = value;
 
-                _jwtSigner = new ECDsaSigner();
-                _jwtSigner.Init(true, ECKeyHelper.GetECPrivateKeyParameters(decodedPrivateKey));
+                _jwtSigner = new ES256Signer(decodedPrivateKey);
             }
         }
 
@@ -206,6 +202,14 @@ namespace Lib.Net.Http.WebPush.Authentication
             return new WebPushSchemeHeadersValues(GetToken(audience), P256ECDSA_PREFIX + _publicKey);
         }
 
+        /// <summary>
+        /// Releases all resources used by the current instance of the <see cref="VapidAuthentication"/> class.
+        /// </summary>
+        public void Dispose()
+        {
+            _jwtSigner?.Dispose();
+        }
+
         private string GetToken(string audience)
         {
             if (String.IsNullOrWhiteSpace(audience))
@@ -236,23 +240,7 @@ namespace Lib.Net.Http.WebPush.Authentication
         {
             string jwtInput = _jwtHeaderSegment + JWT_SEPARATOR + GenerateJwtBodySegment(audience, absoluteExpiration);
 
-            byte[] jwtInputHash;
-            using (var sha256Hasher = SHA256.Create())
-            {
-                jwtInputHash = sha256Hasher.ComputeHash(Encoding.UTF8.GetBytes(jwtInput));
-            }
-
-            BigInteger[] jwtSignature = _jwtSigner.GenerateSignature(jwtInputHash);
-
-            byte[] jwtSignatureFirstSegment = jwtSignature[0].ToByteArrayUnsigned();
-            byte[] jwtSignatureSecondSegment = jwtSignature[1].ToByteArrayUnsigned();
-
-            int jwtSignatureSegmentLength = Math.Max(jwtSignatureFirstSegment.Length, jwtSignatureSecondSegment.Length);
-            byte[] combinedJwtSignature = new byte[2 * jwtSignatureSegmentLength];
-            ByteArrayCopyWithPadLeft(jwtSignatureFirstSegment, combinedJwtSignature, 0, jwtSignatureSegmentLength);
-            ByteArrayCopyWithPadLeft(jwtSignatureSecondSegment, combinedJwtSignature, jwtSignatureSegmentLength, jwtSignatureSegmentLength);
-
-            return jwtInput + JWT_SEPARATOR + UrlBase64Converter.ToUrlBase64String(combinedJwtSignature);
+            return jwtInput + JWT_SEPARATOR + UrlBase64Converter.ToUrlBase64String(_jwtSigner.GenerateSignature(jwtInput));
         }
 
         private string GenerateJwtBodySegment(string audience, DateTime absoluteExpiration)
@@ -279,16 +267,6 @@ namespace Lib.Net.Http.WebPush.Authentication
             TimeSpan unixEpochOffset = dateTime - _unixEpoch;
 
             return (long)unixEpochOffset.TotalSeconds;
-        }
-
-        private static void ByteArrayCopyWithPadLeft(byte[] sourceArray, byte[] destinationArray, int destinationIndex, int destinationLengthToUse)
-        {
-            if (sourceArray.Length != destinationLengthToUse)
-            {
-                destinationIndex += (destinationLengthToUse - sourceArray.Length);
-            }
-
-            Buffer.BlockCopy(sourceArray, 0, destinationArray, destinationIndex, sourceArray.Length);
         }
         #endregion
     }

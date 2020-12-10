@@ -4,7 +4,7 @@
     <Copyright>Copyright © 2018 - 2020 Tomasz Pęczek</Copyright>
     <VersionPrefix>2.3.0</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
-    <TargetFrameworks>net451;net461;netstandard1.6;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net451;net461;netstandard2.0;net5.0</TargetFrameworks>
     <AssemblyTitle>Lib.Net.Http.WebPush</AssemblyTitle>
     <AssemblyName>Lib.Net.Http.WebPush</AssemblyName>
     <PackageId>Lib.Net.Http.WebPush</PackageId>
@@ -23,11 +23,13 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Lib.Net.Http.WebPush.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Portable.BouncyCastle" Version="1.8.1.3" />
-    <PackageReference Include="Lib.Net.Http.EncryptedContentEncoding" Version="2.0.0" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net451'">
     <PackageReference Include="System.Net.Http" Version="4.3.1" />
+  </ItemGroup>
+  <ItemGroup Condition="('$(TargetFramework)' == 'net451') Or ('$(TargetFramework)' == 'net461') Or ('$(TargetFramework)' == 'netstandard1.6') Or ('$(TargetFramework)' == 'netstandard2.0')">
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.1.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Lib.Net.Http.EncryptedContentEncoding" Version="2.1.0" />
   </ItemGroup>
 </Project>
