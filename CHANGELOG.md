@@ -1,5 +1,10 @@
 ## Lib.Net.Http.WebPush 3.1.0
 ### Additions and Changes
+- Dropped support for .NET Core 2.1
+- Added support for .NET 6.0
+
+## Lib.Net.Http.WebPush 3.1.0
+### Additions and Changes
 - Dropped support for .NET Standard 1.6
 - Removed dependency on Bouncy Castle for .NET 5
 - `VapidAuthentication` now implements `IDisposable`

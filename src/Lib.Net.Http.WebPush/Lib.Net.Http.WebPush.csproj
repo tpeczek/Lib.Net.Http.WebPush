@@ -4,7 +4,7 @@
     <Copyright>Copyright © 2018 - 2022 Tomasz Pęczek</Copyright>
     <VersionPrefix>3.1.0</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
-    <TargetFrameworks>net451;net461;netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net451;net461;netstandard2.0;net5.0;net6.0</TargetFrameworks>
     <AssemblyTitle>Lib.Net.Http.WebPush</AssemblyTitle>
     <AssemblyName>Lib.Net.Http.WebPush</AssemblyName>
     <PackageId>Lib.Net.Http.WebPush</PackageId>
