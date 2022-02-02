@@ -1,5 +1,13 @@
 # Lib.Net.Http.WebPush
-[![NuGet version](https://badge.fury.io/nu/Lib.Net.Http.WebPush.svg)](http://badge.fury.io/nu/Lib.Net.Http.WebPush) [![NuGet version](https://badge.fury.io/nu/Lib.AspNetCore.WebPush.svg)](http://badge.fury.io/nu/Lib.AspNetCore.WebPush) [![NuGet version](https://badge.fury.io/nu/Lib.Azure.WebJobs.Extensions.WebPush.svg)](http://badge.fury.io/nu/Lib.Azure.WebJobs.Extensions.WebPush)
+
+[![NuGet Version](https://img.shields.io/nuget/v/Lib.Net.Http.WebPush?label=Lib.Net.Http.WebPush&logo=nuget)](https://www.nuget.org/packages/Lib.Net.Http.WebPush)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Lib.Net.Http.WebPush?label=⭳)](https://www.nuget.org/packages/Lib.Net.Http.WebPush)
+
+[![NuGet Version](https://img.shields.io/nuget/v/Lib.AspNetCore.WebPush?label=Lib.AspNetCore.WebPush&logo=nuget)](https://www.nuget.org/packages/Lib.AspNetCore.WebPush)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Lib.AspNetCore.WebPush?label=⭳)](https://www.nuget.org/packages/Lib.AspNetCore.WebPush)
+
+[![NuGet Version](https://img.shields.io/nuget/v/Lib.Azure.WebJobs.Extensions.WebPush?label=Lib.Azure.WebJobs.Extensions.WebPush&logo=nuget)](https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Lib.Azure.WebJobs.Extensions.WebPush?label=⭳)](https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush)
 
 Lib.Net.Http.WebPush is a library which provides a [Web Push Protocol](https://tools.ietf.org/html/rfc8030) based client for Push Service. It provides support for [Voluntary Application Server Identification (VAPID) for Web Push](https://tools.ietf.org/html/rfc8292) and [Message Encryption for Web Push](https://tools.ietf.org/html/rfc8291).
 
@@ -36,12 +44,10 @@ There are several demo projects available:
 
 ## Donating
 
-My blog and open source projects are result of my passion for software development, but they require a fair amount of my personal time. If you got value from any of the content I create, then I would appreciate your support by [buying me a coffee](https://www.buymeacoffee.com/tpeczek).
-
-<a href="https://www.buymeacoffee.com/tpeczek"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;"  target="_blank"></a>
+My blog and open source projects are result of my passion for software development, but they require a fair amount of my personal time. If you got value from any of the content I create, then I would appreciate your support by [sponsoring me](https://github.com/sponsors/tpeczek) (either monthly or one-time).
 
 ## Copyright and License
 
-Copyright © 2018 - 2021 Tomasz Pęczek
+Copyright © 2018 - 2022 Tomasz Pęczek
 
 Licensed under the [MIT License](https://github.com/tpeczek/Lib.Net.Http.WebPush/blob/master/LICENSE.md)

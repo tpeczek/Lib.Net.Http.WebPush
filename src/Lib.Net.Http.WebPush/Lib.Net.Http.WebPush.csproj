@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Lib.Net.Http.WebPush is a library which provides a Web Push Protocol based client for Push Service.</Description>
-    <Copyright>Copyright © 2018 - 2021 Tomasz Pęczek</Copyright>
+    <Copyright>Copyright © 2018 - 2022 Tomasz Pęczek</Copyright>
     <VersionPrefix>3.1.0</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
     <TargetFrameworks>net451;net461;netstandard2.0;net5.0</TargetFrameworks>
@@ -31,5 +31,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Lib.Net.Http.EncryptedContentEncoding" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 </Project>
