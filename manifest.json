@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/tpecz/GitHub/Lib.Net.Http.WebPush/docs/DocFx.Net.Http.WebPush",
+  "source_base_path": "D:/a/Lib.Net.Http.WebPush/Lib.Net.Http.WebPush/docs/DocFx.Net.Http.WebPush",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.AspNetCore.WebPush.PushServiceClientOptions.html",
-          "hash": "7wWCudtLpr6GjrarXR7ceA=="
+          "hash": "MWicNgKaP6dQ6xQYv1rbfXwGN2fqYicAYuNFJQi+6cE="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.AspNetCore.WebPush.html",
-          "hash": "zcLDus1h7Up3MxEcfI1bXw=="
+          "hash": "pnyWRciwZ3a59jQbfuj/Z6QrHreyLjpYwm13URDaSrY="
         }
       },
       "is_incremental": false,
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.html",
-          "hash": "JZY/ry1ivWgeXPLWrg+4fw=="
+          "hash": "5WBv3ENHTkkBC5+a58vbP8JH07QrYHQ5ZSLuHCbOb6c="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -45,10 +45,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.html",
-          "hash": "QW6NP6FmDe7+Q1s3NA7JSg=="
+          "hash": "hIFboMw63I1b/n0yQAXKsKUPsrBjStMBjp33ZgMLSXU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.html",
-          "hash": "HCpi0YWHdzYNWGYVS7ze9A=="
+          "hash": "a6jgnQqXSbcXOIjM8CDuBunXynDQHtWu308hyuLqunc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html",
-          "hash": "0TXWDjIeYy0Ior2qHYnBQw=="
+          "hash": "A881xw1T2AIWNs1Kuf9HS+6nS9llqcmynyjVxvtfG8U="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.html",
-          "hash": "p29XDw2weIrCtYUwje+apg=="
+          "hash": "C0M4QN4kUVwWLK0jWzOKAtEbeaxXtWfHSju9A1OfbSg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +93,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Azure.WebJobs.Extensions.WebPush.html",
-          "hash": "jzXTFlM/eRj/FM0+jSzs/w=="
+          "hash": "yp3BJKFCG3EthXibFOQBd2logCZi+A7X5AUAyAGzhwo="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -105,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.Authentication.IVapidTokenCache.html",
-          "hash": "THCNY0BsBIN8jnBGmfzxKg=="
+          "hash": "/YFBrN+rbqcxx+bo0a2uP02Ddw/E+lqqysSNCcM+spA="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.WebPushSchemeHeadersValues.html",
-          "hash": "ytf8QHHo/ZEIUvxf5CQbkA=="
+          "hash": "XlrgRakUilZR5P3mttrDyu4sEQkrIC07UG7k/ds2/bY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html",
-          "hash": "75DZ5F9KWAdyv94XvzIj3Q=="
+          "hash": "oVGxJ4258UsmX46vCl73XZApqnkYn8ruiCq9S1SFRag="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.Authentication.VapidAuthenticationScheme.html",
-          "hash": "fIvtdhWCHg3hNNRnNpS3kw=="
+          "hash": "0Yp4GLK2opsvW0Tk1VuclCc6eK1SRyz47NJoLlmfohU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.Authentication.html",
-          "hash": "dln7xLx/sZiA710poe4gpQ=="
+          "hash": "ZDhqFoYfI1CgNRZhxPfpOka+FNJu7n+fEfgFwyLw7fs="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushEncryptionKeyName.html",
-          "hash": "Yu2xAg4lkbgyO515r7UgKA=="
+          "hash": "WOQ9qUd9pbo3DQmGAhvM2nplXdaiUGeeicSOa0fMrWc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushMessage.html",
-          "hash": "1cDbPch0f3gODYUmbj1yUg=="
+          "hash": "y8MunM5LcTpF9GtWisHBHut18Qj6t3t0IdyFcQuF/qY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushMessageUrgency.html",
-          "hash": "zMJv9R5z33WvGFCdXaAraA=="
+          "hash": "2POt0lqqDq+vE62XmizZpgtf5d7yHHQI8yJTj7QW3pg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,10 +201,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushServiceClient.html",
-          "hash": "Si0wW0nTWNxxL7cuEVVAtA=="
+          "hash": "aKNiW0QjqBYaeFfdHoBpQQ5kywlEQ8x0gQkj8W1w+c4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushServiceClientException.html",
-          "hash": "wsH2AsXKbzsZUWBWU0r2UA=="
+          "hash": "fxGDgKIiX2CwMAN5aTwrEO7ZhB/BcW6LjY7pZ0Ct1qk="
         }
       },
       "is_incremental": false,
@@ -225,10 +225,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.PushSubscription.html",
-          "hash": "kQfb0prUEA1QmiU5/tm7MA=="
+          "hash": "fqv07LQKN8F4FeQCC+7YIgHx6zRXaGNgNopQPDZUjCg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Lib.Net.Http.WebPush.html",
-          "hash": "TIqW636fXMb4oJPYxBzpTA=="
+          "hash": "DBZOa+dkG/q+7vsHZOuXbikYL2AndXoqfzGIavS4rV0="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html",
-          "hash": "kOk1dXkEnx+J1o13KeVY+A=="
+          "hash": "gJ8WbrfjKmQGcekXovzzVPwxz2CJkOYnoi5Lw+whFqI="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.html",
-          "hash": "M5I3ojSH8sThOzd0PRk7ig=="
+          "hash": "SGR4IqFMFnbU/ExETz45QPyXlKfz+XU+Eh7LJSxPKuw="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "+KDc9oHcuAl9o+baLpwQrQ=="
+          "hash": "Vmr0YxVsTsi4996S1Azv9VtTVg1fBrPRD+Ap4TdbC9E="
         }
       },
       "is_incremental": false,
@@ -288,10 +288,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/aspnetcore-integration.html",
-          "hash": "x/IG1YpFbLZgSJKBvP/MvA=="
+          "hash": "cTBpX7ul/ulUsSsBOMo9hRNmAV0h8UBn2TdBHOBeBLQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -303,10 +303,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/azure-functions-integration.html",
-          "hash": "E0//00KfcF1/re9/h/pEjA=="
+          "hash": "8R/gh7Sv6p1TbNvp5R1o0JIwMe7k2nq6uWYo/95VANk="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -318,10 +318,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/performance-considerations.html",
-          "hash": "oDh2TzTMcL8BtLjv4hnO6A=="
+          "hash": "nx1lyCMgHleJfeoyjjg9BujaCUeydQ0ugHEvABx6bCw="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -330,10 +330,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "nzmlea51ARGfUfsXwFqfCQ=="
+          "hash": "zk7Ysn2BdRJjxslZWGTlQBDEIRd3y6PHQzezQwNtJUg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -367,7 +367,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "X2XedngPRX/ttpw+ncxaXQ=="
+          "hash": "g/mL0gnx2La7OO8AmtV78mBileO9O7XKfl9mnY338U4="
         }
       },
       "is_incremental": false,
@@ -377,30 +377,32 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 22,
+          "skipped_file_count": 0
+        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 4,
-          "skipped_file_count": 4
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 22,
-          "skipped_file_count": 19
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -413,8 +415,8 @@
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

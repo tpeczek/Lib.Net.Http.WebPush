@@ -368,6 +368,19 @@ references:
   isSpec: "True"
   fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.VapidAuthentication
   nameWithType: VapidAuthentication.VapidAuthentication
+- uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose
+  name: Dispose()
+  href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Dispose
+  commentId: M:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose
+  fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose()
+  nameWithType: VapidAuthentication.Dispose()
+- uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose*
+  name: Dispose
+  href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Dispose_
+  commentId: Overload:Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose
+  isSpec: "True"
+  fullName: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Dispose
+  nameWithType: VapidAuthentication.Dispose
 - uid: Lib.Net.Http.WebPush.Authentication.VapidAuthentication.Expiration
   name: Expiration
   href: api/Lib.Net.Http.WebPush.Authentication.VapidAuthentication.html#Lib_Net_Http_WebPush_Authentication_VapidAuthentication_Expiration
