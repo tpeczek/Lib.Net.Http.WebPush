@@ -291,10 +291,18 @@ namespace Lib.Net.Http.WebPush
             }
             else
             {
+                string p256dhKey = subscription.GetKey(PushEncryptionKeyName.P256DH);
+                string authKey = subscription.GetKey(PushEncryptionKeyName.Auth);
+
+                if (String.IsNullOrWhiteSpace(p256dhKey) || String.IsNullOrWhiteSpace(authKey))
+                {
+                    throw new InvalidOperationException("The client P-256 public key or authentication secret is not available");
+                }
+
                 ECDHAgreement keyAgreement = ECDHAgreementCalculator.CalculateAgreement
                 (
-                    UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.P256DH)),
-                    UrlBase64Converter.FromUrlBase64String(subscription.GetKey(PushEncryptionKeyName.Auth))
+                    UrlBase64Converter.FromUrlBase64String(p256dhKey),
+                    UrlBase64Converter.FromUrlBase64String(authKey)
                 );
 
                 pushMessageDeliveryRequest.Content = new Aes128GcmEncodedContent(

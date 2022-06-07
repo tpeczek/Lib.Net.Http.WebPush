@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Lib.Net.Http.WebPush
 {
@@ -36,6 +38,10 @@ namespace Lib.Net.Http.WebPush
                 if (Keys.ContainsKey(keyNameStringified))
                 {
                     key = Keys[keyNameStringified];
+                }
+                else
+                {
+                    key = Keys.SingleOrDefault(x => String.Equals(x.Key, keyNameStringified, StringComparison.OrdinalIgnoreCase)).Value;
                 }
             }
 
