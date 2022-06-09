@@ -12,6 +12,7 @@
     <PackageTags>aspnetcore;webpush</PackageTags>
     <PackageProjectUrl>https://github.com/tpeczek/Lib.Net.Http.WebPush</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/tpeczek/Lib.Net.Http.WebPush</RepositoryUrl>
     <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
@@ -24,6 +25,9 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Lib.AspNetCore.WebPush.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
   <ItemGroup Condition="('$(TargetFramework)' == 'netcoreapp2.1') Or ('$(TargetFramework)' == 'net461')">
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />

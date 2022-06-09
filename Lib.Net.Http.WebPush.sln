@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Net.Http.WebPush", "src\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj", "{79FDCAAA-6129-4FBB-B94E-7F7BE9A07C7C}"
 EndProject
@@ -21,7 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.AspNetCore.WebPush", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AFD9AC51-E923-49DF-B000-721816ABDE37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Lib.Net.Http.WebPush", "test\Test.Lib.Net.Http.WebPush\Test.Lib.Net.Http.WebPush.csproj", "{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Lib.Net.Http.WebPush", "test\Test.Lib.Net.Http.WebPush\Test.Lib.Net.Http.WebPush.csproj", "{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7992C65C-E6C3-4B34-AB9B-EF24915BB907}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

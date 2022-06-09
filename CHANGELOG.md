@@ -1,4 +1,8 @@
-## Lib.Net.Http.WebPush 3.1.0
+## Lib.Net.Http.WebPush 3.2.1
+### Bug Fixes
+- Fix for client keys casing and validation.
+
+## Lib.Net.Http.WebPush 3.2.0
 ### Additions and Changes
 - Dropped support for .NET Core 2.1
 - Added support for .NET 6.0
