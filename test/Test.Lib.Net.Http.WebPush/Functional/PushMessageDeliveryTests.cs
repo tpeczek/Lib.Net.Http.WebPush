@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Xunit;
@@ -19,12 +18,15 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 
 		private const string WALRUS_CONTENT = "I am the walrus";
 
+		private const string PUSH_SUBSCRIPTION_AUTH_KEY = "n5mG_PyMSKALsjsU542E6g";
+		private const string PUSH_SUBSCRIPTION_P256DH_KEY = "BDS52l6tfaf6ZEqhyDa0cScvCi4WXNYPIwmfas-7nKLIQex-DVKXB9gUxDExaZEOiwovl6LbWXZBZ9AT-GWT6eQ";
+
 		private readonly PushSubscription _pushSubscription = new PushSubscription
 		{
 			Keys = new Dictionary<string, string>
 				{
-					{ "auth", "n5mG_PyMSKALsjsU542E6g" },
-					{ "p256dh", "BDS52l6tfaf6ZEqhyDa0cScvCi4WXNYPIwmfas-7nKLIQex-DVKXB9gUxDExaZEOiwovl6LbWXZBZ9AT-GWT6eQ" }
+					{ "auth", PUSH_SUBSCRIPTION_AUTH_KEY },
+					{ "p256dh", PUSH_SUBSCRIPTION_P256DH_KEY }
 				}
 		};
 
@@ -203,6 +205,81 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 			}) as PushServiceClientException;
 
 			Assert.Equal(_pushSubscription, pushMessageDeliveryException.PushSubscription);
+		}
+
+		[Fact]
+		public async Task PushService_PushEncryptionKeysNamesLowercase_DeliversPushMessage()
+		{
+			PushSubscription pushSubscription = new PushSubscription
+			{
+				Keys = new Dictionary<string, string>
+				{
+					{ "auth", PUSH_SUBSCRIPTION_AUTH_KEY },
+					{ "p256dh", PUSH_SUBSCRIPTION_P256DH_KEY }
+				},
+				Endpoint = CREATED_ENDPOINT
+			};
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			Exception pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(pushSubscription, pushMessage);
+			});
+
+			Assert.Null(pushMessageDeliveryException);
+		}
+
+		[Fact]
+		public async Task PushService_PushEncryptionKeysNamesUppercase_DeliversPushMessage()
+		{
+			PushSubscription pushSubscription = new PushSubscription
+			{
+				Keys = new Dictionary<string, string>
+				{
+					{ "AUTH", PUSH_SUBSCRIPTION_AUTH_KEY },
+					{ "P256DH", PUSH_SUBSCRIPTION_P256DH_KEY }
+				},
+				Endpoint = CREATED_ENDPOINT
+			};
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			Exception pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(pushSubscription, pushMessage);
+			});
+
+			Assert.Null(pushMessageDeliveryException);
+		}
+
+		[Fact]
+		public async Task PushService_PushEncryptionKeysNamesMixedCase_DeliversPushMessage()
+		{
+			PushSubscription pushSubscription = new PushSubscription
+			{
+				Keys = new Dictionary<string, string>
+				{
+					{ "AuTh", PUSH_SUBSCRIPTION_AUTH_KEY },
+					{ "P256dH", PUSH_SUBSCRIPTION_P256DH_KEY }
+				},
+				Endpoint = CREATED_ENDPOINT
+			};
+
+			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
+
+			PushServiceClient pushClient = PreparePushServiceClient();
+
+			Exception pushMessageDeliveryException = await Record.ExceptionAsync(async () =>
+			{
+				await pushClient.RequestPushMessageDeliveryAsync(pushSubscription, pushMessage);
+			});
+
+			Assert.Null(pushMessageDeliveryException);
 		}
 		#endregion
 	}
