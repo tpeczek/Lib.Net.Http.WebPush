@@ -36,7 +36,7 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj" />
+    <PackageReference Include="Lib.Net.Http.WebPush" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
