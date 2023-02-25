@@ -33,7 +33,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib.Net.Http.WebPush\Lib.Net.Http.WebPush.csproj" />
+    <PackageReference Include="Lib.Net.Http.WebPush" Version="2.3.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
