@@ -48,6 +48,6 @@ My blog and open source projects are result of my passion for software developme
 
 ## Copyright and License
 
-Copyright © 2018 - 2023 Tomasz Pęczek
+Copyright © 2018 - 2024 Tomasz Pęczek
 
 Licensed under the [MIT License](https://github.com/tpeczek/Lib.Net.Http.WebPush/blob/master/LICENSE.md)
