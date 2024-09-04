@@ -4,11 +4,13 @@ Lib.Net.Http.WebPush is a library which provides a [*Web Push Protocol*](https:/
 
 Lib.AspNetCore.WebPush is a library which provides ASP.NET Core extensions for Web Push Protocol based client for Push Service.
 
-Lib.Azure.WebJobs.Extensions.WebPush is a library which provides [Azure Functions](https://functions.azure.com/) and [Azure WebJobs](https://docs.microsoft.com/en-us/azure/app-service/web-sites-create-web-jobs) binding extensions for Web Push Protocol based client for Push Service.
+Lib.Azure.WebJobs.Extensions.WebPush is a library which provides [Azure Functions](https://functions.azure.com/) in-process model and [Azure WebJobs](https://docs.microsoft.com/en-us/azure/app-service/web-sites-create-web-jobs) binding extensions for Web Push Protocol based client for Push Service.
+
+Lib.Azure.Functions.Worker.Extensions.WebPush is a library which provides [Azure Functions](https://functions.azure.com/) isolated worker model extensions for Web Push Protocol based client for Push Service.
 
 ## Installation
 
-You can install [Lib.Net.Http.WebPush](https://www.nuget.org/packages/Lib.Net.Http.WebPush), [Lib.AspNetCore.WebPush](https://www.nuget.org/packages/Lib.AspNetCore.WebPush), and [Lib.Azure.WebJobs.Extensions.WebPush](https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush) from NuGet.
+You can install [Lib.Net.Http.WebPush](https://www.nuget.org/packages/Lib.Net.Http.WebPush), [Lib.AspNetCore.WebPush](https://www.nuget.org/packages/Lib.AspNetCore.WebPush), [Lib.Azure.WebJobs.Extensions.WebPush](https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush), and [Lib.Azure.Functions.Worker.Extensions.WebPush](https://www.nuget.org/packages/Lib.Azure.Functions.Worker.Extensions.WebPush) from NuGet.
 
 ```
 PM>  Install-Package Lib.Net.Http.WebPush
@@ -20,6 +22,10 @@ PM>  Install-Package Lib.AspNetCore.WebPush
 
 ```
 PM>  Install-Package Lib.Azure.WebJobs.Extensions.WebPush
+```
+
+```
+PM>  Install-Package Lib.Azure.Functions.Worker.Extensions.WebPush
 ```
 
 ## Demos

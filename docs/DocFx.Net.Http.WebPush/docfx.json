@@ -6,7 +6,8 @@
           "files": [
             "src/Lib.Net.Http.WebPush/Lib.Net.Http.WebPush.csproj",
             "src/Lib.AspNetCore.WebPush/Lib.AspNetCore.WebPush.csproj",
-            "src/Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj"
+            "src/Lib.Azure.WebJobs.Extensions.WebPush/Lib.Azure.WebJobs.Extensions.WebPush.csproj",
+            "src/Lib.Azure.Functions.Worker.Extensions.WebPush/Lib.Azure.Functions.Worker.Extensions.WebPush.csproj"
           ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
           "src": "../.."
@@ -14,7 +15,7 @@
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "netstandard2.0"
+        "TargetFramework": "net6.0"
       }
     }
   ],
