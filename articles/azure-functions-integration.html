@@ -8,7 +8,7 @@
     <title>PushServiceClient bindings for Azure Functions | Lib.Net.Http.WebPush </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="PushServiceClient bindings for Azure Functions | Lib.Net.Http.WebPush ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../resources/ico/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -54,48 +54,119 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="pushserviceclient-bindings-for-azure-functions">PushServiceClient bindings for Azure Functions</h1>
 
-<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> bindings for Azure Functions supports input binding.</p>
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> extensions for Azure Functions supports input binding.</p>
 <h2 id="packages">Packages</h2>
-<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> bindings for Azure Functions are provided in the <a href="https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush">Lib.Azure.WebJobs.Extensions.WebPush</a> NuGet package.</p>
+<p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> extensions for Azure Functions are provided in the <a href="https://www.nuget.org/packages/Lib.Azure.WebJobs.Extensions.WebPush">Lib.Azure.WebJobs.Extensions.WebPush</a> (in-process model) and <a href="https://www.nuget.org/packages/Lib.Azure.Functions.Worker.Extensions.WebPush">Lib.Azure.Functions.Worker.Extensions.WebPush</a> (isolated worker model) NuGet packages.</p>
 <pre><code>PM&gt;  Install-Package Lib.Azure.WebJobs.Extensions.WebPush
+</code></pre><pre><code>PM&gt;  Install-Package Lib.Azure.Functions.Worker.Extensions.WebPush
 </code></pre><h2 id="input">Input</h2>
 <p>The <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> input binding uses <code>HttpClientFactory</code> to retrieve <a href="../api/Lib.Net.Http.WebPush.PushServiceClient.html"><code>PushServiceClient</code></a> instance and passes it to the input parameter of the function.</p>
 <h3 id="input---language-specific-examples">Input - language-specific examples</h3>
 <h4 id="input---c-examples">Input - C# examples</h4>
+<h5 id="isolated-worker-model">Isolated Worker Model</h5>
+<p>In <a href="https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows">the isolated worker model functions</a>, use the <a href="../api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html"><code>PushServiceInput</code></a> attribute.</p>
+<p>The attribute&#39;s constructor takes the application server public key and application server private key. For information about those settings and other properties that you can configure, see <a href="#input---configuration">Input - configuration</a>.</p>
+<h6 id="azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</h6>
+<p>The following example shows a <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library">C# function</a> that broadcasts a notification to all known subscriptions. The function is triggered by a change in Azure Cosmos DB collection and retrieves subscriptions also from Azure Cosmos DB.</p>
+<pre><code class="lang-cs">...
+
+namespace Demo.Azure.Functions.Worker.PushNotifications
+{
+    public class SendNotificationFunction
+    {
+        private readonly ILogger _logger;
+
+        public SendNotificationFunction(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger&lt;SendNotificationFunction&gt;();
+        }
+
+        [Function(&quot;SendNotificationFunction&quot;)]
+        public async Task Run([CosmosDBTrigger(
+            databaseName: &quot;PushNotifications&quot;,
+            containerName: &quot;Notifications&quot;,
+            Connection = &quot;CosmosDBConnection&quot;,
+            LeaseContainerName = &quot;NotificationsLeaseCollection&quot;,
+            CreateLeaseContainerIfNotExists = true)] IReadOnlyList&lt;Notification&gt; notifications,
+            [CosmosDBInput(
+            databaseName: &quot;PushNotifications&quot;,
+            containerName: &quot;Subscriptions&quot;,
+            Connection = &quot;CosmosDBConnection&quot;)] CosmosClient cosmosClient,
+            [PushServiceInput(
+            PublicKeySetting = &quot;ApplicationServerPublicKey&quot;,
+            PrivateKeySetting = &quot;ApplicationServerPrivateKey&quot;,
+            SubjectSetting = &quot;ApplicationServerSubject&quot;)] PushServiceClient pushServiceClient)
+        {
+            if (notifications != null)
+            {
+                Container subscriptionsContainer = cosmosClient.GetDatabase(&quot;PushNotifications&quot;).GetContainer(&quot;Subscriptions&quot;);
+                using (FeedIterator&lt;PushSubscription&gt; subscriptionsIterator = subscriptionsContainer.GetItemQueryIterator&lt;PushSubscription&gt;())
+                {
+                    while (subscriptionsIterator.HasMoreResults)
+                    {
+                        foreach (PushSubscription subscription in await subscriptionsIterator.ReadNextAsync())
+                        {
+                            foreach (Notification notification in notifications)
+                            {
+                                // Fire-and-forget
+                                pushServiceClient.RequestPushMessageDeliveryAsync(subscription, new PushMessage(notification.Content)
+                                {
+                                    Topic = notification.Topic,
+                                    TimeToLive = notification.TimeToLive,
+                                    Urgency = notification.Urgency
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public class Notification
+    {
+        public string? Topic { get; set; }
+
+        public string Content { get; set; } = String.Empty;
+
+        public int? TimeToLive { get; set; }
+
+        public PushMessageUrgency Urgency { get; set; }
+    }
+}
+</code></pre><h5 id="in-process-model">In-process Model</h5>
 <p>In <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library">C# class libraries</a>, use the <a href="../api/Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.html"><code>PushService</code></a> attribute.</p>
 <p>The attribute&#39;s constructor takes the application server public key and application server private key. For information about those settings and other properties that you can configure, see <a href="#input---configuration">Input - configuration</a>.</p>
-<p>This section contains the following examples:</p>
-<ul>
-<li><a href="#azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</a></li>
-</ul>
-<h5 id="azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</h5>
+<h6 id="azure-cosmos-db-trigger-subscriptions-from-azure-cosmos-db-1">Azure Cosmos DB trigger, subscriptions from Azure Cosmos DB</h6>
 <p>The following example shows a <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library">C# function</a> that broadcasts a notification to all known subscriptions. The function is triggered by a change in Azure Cosmos DB collection and retrieves subscriptions also from Azure Cosmos DB.</p>
-<pre><code class="lang-cs">using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.Documents.Linq;
-using Microsoft.Azure.Documents.Client;
-using Lib.Net.Http.WebPush;
-using Lib.Azure.WebJobs.Extensions.WebPush.Bindings;
+<pre><code class="lang-cs">...
 
 namespace Demo.Azure.Funtions.PushNotifications
 {
+    public class Notification
+    {
+        public string Topic { get; set; }
+
+        public string Content {  get; set; }
+
+        public int? TimeToLive { get; set; }
+
+        public PushMessageUrgency Urgency { get; set; }
+    }
+
     public static class SendNotificationFunction
     {
-        private static readonly Uri _subscriptionsCollectionUri = UriFactory.CreateDocumentCollectionUri(&quot;PushNotifications&quot;, &quot;SubscriptionsCollection&quot;);
-
         [FunctionName(&quot;SendNotification&quot;)]
         public static async Task Run([CosmosDBTrigger(
             databaseName: &quot;PushNotifications&quot;,
-            collectionName: &quot;NotificationsCollection&quot;,
-            ConnectionStringSetting = &quot;CosmosDBConnection&quot;,
-            LeaseCollectionName = &quot;NotificationsLeaseCollection&quot;,
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList&lt;PushMessage&gt; notifications,
+            containerName: &quot;Notifications&quot;,
+            Connection = &quot;CosmosDBConnection&quot;,
+            LeaseContainerName = &quot;NotificationsLeaseCollection&quot;,
+            CreateLeaseContainerIfNotExists = true)]IReadOnlyList&lt;Notification&gt; notifications,
             [CosmosDB(
             databaseName: &quot;PushNotifications&quot;,
-            collectionName: &quot;SubscriptionsCollection&quot;,
-            ConnectionStringSetting = &quot;CosmosDBConnection&quot;)]DocumentClient cosmosDbClient,
+            containerName: &quot;Subscriptions&quot;,
+            Connection = &quot;CosmosDBConnection&quot;)]CosmosClient cosmosClient,
             [PushService(
             PublicKeySetting = &quot;ApplicationServerPublicKey&quot;,
             PrivateKeySetting = &quot;ApplicationServerPrivateKey&quot;,
@@ -103,20 +174,23 @@ namespace Demo.Azure.Funtions.PushNotifications
         {
             if (notifications != null)
             {
-                IDocumentQuery&lt;PushSubscription&gt; subscriptionQuery = cosmosDbClient.CreateDocumentQuery&lt;PushSubscription&gt;(_subscriptionsCollectionUri, new FeedOptions
+                Container subscriptionsContainer = cosmosClient.GetDatabase(&quot;PushNotifications&quot;).GetContainer(&quot;Subscriptions&quot;);
+                using (FeedIterator&lt;PushSubscription&gt; subscriptionsIterator = subscriptionsContainer.GetItemQueryIterator&lt;PushSubscription&gt;())
                 {
-                    EnableCrossPartitionQuery = true,
-                    MaxItemCount = -1
-                }).AsDocumentQuery();
-
-                while (subscriptionQuery.HasMoreResults)
-                {
-                    foreach (PushSubscription subscription in await subscriptionQuery.ExecuteNextAsync())
+                    while (subscriptionsIterator.HasMoreResults)
                     {
-                        foreach (PushMessage notification in notifications)
+                        foreach (PushSubscription subscription in await subscriptionsIterator.ReadNextAsync())
                         {
-                            // Fire-and-forget
-                            pushServiceClient.RequestPushMessageDeliveryAsync(subscription, notification);
+                            foreach (Notification notification in notifications)
+                            {
+                                // Fire-and-forget
+                                pushServiceClient.RequestPushMessageDeliveryAsync(subscription, new PushMessage(notification.Content)
+                                {
+                                    Topic = notification.Topic,
+                                    TimeToLive = notification.TimeToLive,
+                                    Urgency = notification.Urgency
+                                });
+                            }
                         }
                     }
                 }
@@ -174,7 +248,7 @@ namespace Demo.Azure.Funtions.PushNotifications
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2018 - 2022 Tomasz Pęczek
+            Copyright © 2018 - 2024 Tomasz Pęczek
             
           </div>
         </div>

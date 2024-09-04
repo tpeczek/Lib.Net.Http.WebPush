@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PushServiceAttribute
+    <title>Class PushServiceInputAttribute
    | Lib.Net.Http.WebPush </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PushServiceAttribute
+    <meta name="title" content="Class PushServiceInputAttribute
    | Lib.Net.Http.WebPush ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -60,19 +60,21 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-12">
-            <article class="content wrap" id="_content" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute">
+            <article class="content wrap" id="_content" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute">
   
   
-  <h1 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute" class="text-break">Class PushServiceAttribute
+  <h1 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute" class="text-break">Class PushServiceInputAttribute
   </h1>
-  <div class="markdown level0 summary"><p>Attribute used to bind to a PushService.</p>
+  <div class="markdown level0 summary"><p>Attribute used to configure a parameter as the input target for the PushService binding.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Attribute</span></div>
-    <div class="level2"><span class="xref">PushServiceAttribute</span></div>
+    <div class="level2"><span class="xref">Microsoft.Azure.Functions.Worker.Extensions.Abstractions.BindingAttribute</span></div>
+    <div class="level3"><span class="xref">Microsoft.Azure.Functions.Worker.Extensions.Abstractions.InputBindingAttribute</span></div>
+    <div class="level4"><span class="xref">PushServiceInputAttribute</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -203,21 +205,22 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.html">Lib.Azure.WebJobs.Extensions.WebPush.Bindings</a></h6>
-  <h6><strong>Assembly</strong>: Lib.Azure.WebJobs.Extensions.WebPush.dll</h6>
-  <h5 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Lib.Azure.Functions.Worker.Extensions.WebPush.html">Lib.Azure.Functions.Worker.Extensions.WebPush</a></h6>
+  <h6><strong>Assembly</strong>: Lib.Azure.Functions.Worker.Extensions.WebPush.dll</h6>
+  <h5 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Parameter)]
-public sealed class PushServiceAttribute : Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">[InputConverter(typeof(PushServiceConverter))]
+[ConverterFallbackBehavior(ConverterFallbackBehavior.Allow)]
+public sealed class PushServiceInputAttribute : InputBindingAttribute</code></pre>
   </div>
-  <h5 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_remarks"><strong>Remarks</strong></h5>
+  <h5 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The method parameter type can be one of the following:
-<ul><li><see cref="!:PushServiceClient"></see></li></ul></p>
+<ul><li><a class="xref" href="Lib.Net.Http.WebPush.PushServiceClient.html">PushServiceClient</a></li></ul></p>
 </div>
   <h3 id="properties">Properties
   </h3>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_AutoRetryAfter_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.AutoRetryAfter*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_AutoRetryAfter" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.AutoRetryAfter">AutoRetryAfter</h4>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_AutoRetryAfter_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_AutoRetryAfter" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter">AutoRetryAfter</h4>
   <div class="markdown level1 summary"><p>The value indicating if client should automatically attempt to retry in case of 429 Too Many Requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -240,9 +243,9 @@ public sealed class PushServiceAttribute : Attribute</code></pre>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_DefaultTimeToLive_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.DefaultTimeToLive*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_DefaultTimeToLive" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.DefaultTimeToLive">DefaultTimeToLive</h4>
-  <div class="markdown level1 summary"><p>The default time (in seconds) for which the message should be retained by push service. It will be used when <see cref="!:PushMessage.TimeToLive"></see> is not set.</p>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_DefaultTimeToLive_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_DefaultTimeToLive" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive">DefaultTimeToLive</h4>
+  <div class="markdown level1 summary"><p>The default time (in seconds) for which the message should be retained by push service. It will be used when <a class="xref" href="Lib.Net.Http.WebPush.PushMessage.html#Lib_Net_Http_WebPush_PushMessage_TimeToLive">TimeToLive</a> is not set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -264,8 +267,8 @@ public sealed class PushServiceAttribute : Attribute</code></pre>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_MaxRetriesAfter_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.MaxRetriesAfter*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_MaxRetriesAfter" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.MaxRetriesAfter">MaxRetriesAfter</h4>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_MaxRetriesAfter_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_MaxRetriesAfter" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter">MaxRetriesAfter</h4>
   <div class="markdown level1 summary"><p>The value indicating the maximum number of automatic attempts to retry in case of 429 Too Many Requests (&lt;= 0 means unlimited).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -288,8 +291,8 @@ public sealed class PushServiceAttribute : Attribute</code></pre>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_PrivateKeySetting_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.PrivateKeySetting*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_PrivateKeySetting" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.PrivateKeySetting">PrivateKeySetting</h4>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PrivateKeySetting_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PrivateKeySetting" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting">PrivateKeySetting</h4>
   <div class="markdown level1 summary"><p>The application server private key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -312,8 +315,8 @@ public sealed class PushServiceAttribute : Attribute</code></pre>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_PublicKeySetting_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.PublicKeySetting*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_PublicKeySetting" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.PublicKeySetting">PublicKeySetting</h4>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PublicKeySetting_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PublicKeySetting" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting">PublicKeySetting</h4>
   <div class="markdown level1 summary"><p>The application server public key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -336,8 +339,8 @@ public sealed class PushServiceAttribute : Attribute</code></pre>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_SubjectSetting_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.SubjectSetting*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_Bindings_PushServiceAttribute_SubjectSetting" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.Bindings.PushServiceAttribute.SubjectSetting">SubjectSetting</h4>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_SubjectSetting_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_SubjectSetting" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting">SubjectSetting</h4>
   <div class="markdown level1 summary"><p>The contact information for the application server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

@@ -117,6 +117,115 @@ references:
   isSpec: "True"
   fullName: Lib.AspNetCore.WebPush.PushServiceClientOptions.Subject
   nameWithType: PushServiceClientOptions.Subject
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush
+  name: Lib.Azure.Functions.Worker.Extensions.WebPush
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.html
+  commentId: N:Lib.Azure.Functions.Worker.Extensions.WebPush
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush
+  nameWithType: Lib.Azure.Functions.Worker.Extensions.WebPush
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup
+  name: PushServiceExtensionStartup
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.html
+  commentId: T:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup
+  nameWithType: PushServiceExtensionStartup
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)
+  name: Configure(IFunctionsWorkerApplicationBuilder)
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup_Configure_Microsoft_Azure_Functions_Worker_IFunctionsWorkerApplicationBuilder_
+  commentId: M:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)
+  nameWithType: PushServiceExtensionStartup.Configure(IFunctionsWorkerApplicationBuilder)
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure*
+  name: Configure
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup_Configure_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure
+  nameWithType: PushServiceExtensionStartup.Configure
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute
+  name: PushServiceInputAttribute
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html
+  commentId: T:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute
+  nameWithType: PushServiceInputAttribute
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter
+  name: AutoRetryAfter
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_AutoRetryAfter
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter
+  nameWithType: PushServiceInputAttribute.AutoRetryAfter
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter*
+  name: AutoRetryAfter
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_AutoRetryAfter_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.AutoRetryAfter
+  nameWithType: PushServiceInputAttribute.AutoRetryAfter
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive
+  name: DefaultTimeToLive
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_DefaultTimeToLive
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive
+  nameWithType: PushServiceInputAttribute.DefaultTimeToLive
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive*
+  name: DefaultTimeToLive
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_DefaultTimeToLive_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.DefaultTimeToLive
+  nameWithType: PushServiceInputAttribute.DefaultTimeToLive
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter
+  name: MaxRetriesAfter
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_MaxRetriesAfter
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter
+  nameWithType: PushServiceInputAttribute.MaxRetriesAfter
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter*
+  name: MaxRetriesAfter
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_MaxRetriesAfter_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.MaxRetriesAfter
+  nameWithType: PushServiceInputAttribute.MaxRetriesAfter
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting
+  name: PrivateKeySetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PrivateKeySetting
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting
+  nameWithType: PushServiceInputAttribute.PrivateKeySetting
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting*
+  name: PrivateKeySetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PrivateKeySetting_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PrivateKeySetting
+  nameWithType: PushServiceInputAttribute.PrivateKeySetting
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting
+  name: PublicKeySetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PublicKeySetting
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting
+  nameWithType: PushServiceInputAttribute.PublicKeySetting
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting*
+  name: PublicKeySetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_PublicKeySetting_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.PublicKeySetting
+  nameWithType: PushServiceInputAttribute.PublicKeySetting
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting
+  name: SubjectSetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_SubjectSetting
+  commentId: P:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting
+  nameWithType: PushServiceInputAttribute.SubjectSetting
+- uid: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting*
+  name: SubjectSetting
+  href: api/Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.html#Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceInputAttribute_SubjectSetting_
+  commentId: Overload:Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting
+  isSpec: "True"
+  fullName: Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceInputAttribute.SubjectSetting
+  nameWithType: PushServiceInputAttribute.SubjectSetting
 - uid: Lib.Azure.WebJobs.Extensions.WebPush
   name: Lib.Azure.WebJobs.Extensions.WebPush
   href: api/Lib.Azure.WebJobs.Extensions.WebPush.html
@@ -264,19 +373,19 @@ references:
   commentId: T:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions
   fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions
   nameWithType: PushServiceWebJobsBuilderExtensions
-- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder)
+- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder)
   name: AddPushService(IWebJobsBuilder)
-  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsBuilderExtensions_AddPushService_Microsoft_Azure_WebJobs_IWebJobsBuilder_
-  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder)
-  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder)
+  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsBuilderExtensions_AddPushService_IWebJobsBuilder_
+  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder)
+  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder)
   nameWithType: PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder)
-- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder,System.Action{Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions})
+- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder,System.Action{Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions})
   name: AddPushService(IWebJobsBuilder, Action<PushServiceOptions>)
-  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsBuilderExtensions_AddPushService_Microsoft_Azure_WebJobs_IWebJobsBuilder_System_Action_Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions__
-  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder,System.Action{Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions})
+  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsBuilderExtensions_AddPushService_IWebJobsBuilder_System_Action_Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions__
+  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder,System.Action{Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions})
   name.vb: AddPushService(IWebJobsBuilder, Action(Of PushServiceOptions))
-  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder, System.Action<Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions>)
-  fullName.vb: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(Microsoft.Azure.WebJobs.IWebJobsBuilder, System.Action(Of Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions))
+  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder, System.Action<Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions>)
+  fullName.vb: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder, System.Action(Of Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions))
   nameWithType: PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder, Action<PushServiceOptions>)
   nameWithType.vb: PushServiceWebJobsBuilderExtensions.AddPushService(IWebJobsBuilder, Action(Of PushServiceOptions))
 - uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsBuilderExtensions.AddPushService*
@@ -292,11 +401,11 @@ references:
   commentId: T:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup
   fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup
   nameWithType: PushServiceWebJobsStartup
-- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(Microsoft.Azure.WebJobs.IWebJobsBuilder)
+- uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(IWebJobsBuilder)
   name: Configure(IWebJobsBuilder)
-  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsStartup_Configure_Microsoft_Azure_WebJobs_IWebJobsBuilder_
-  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(Microsoft.Azure.WebJobs.IWebJobsBuilder)
-  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(Microsoft.Azure.WebJobs.IWebJobsBuilder)
+  href: api/Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.html#Lib_Azure_WebJobs_Extensions_WebPush_PushServiceWebJobsStartup_Configure_IWebJobsBuilder_
+  commentId: M:Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(IWebJobsBuilder)
+  fullName: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure(IWebJobsBuilder)
   nameWithType: PushServiceWebJobsStartup.Configure(IWebJobsBuilder)
 - uid: Lib.Azure.WebJobs.Extensions.WebPush.PushServiceWebJobsStartup.Configure*
   name: Configure
@@ -940,11 +1049,11 @@ references:
   commentId: T:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions
   fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions
   nameWithType: PushServiceClientServiceCollectionExtensions
-- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: AddDistributedVapidTokenCache(IServiceCollection)
-  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddDistributedVapidTokenCache_IServiceCollection_
-  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(IServiceCollection)
-  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddDistributedVapidTokenCache_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache(IServiceCollection)
 - uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache*
   name: AddDistributedVapidTokenCache
@@ -953,11 +1062,11 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache
   nameWithType: PushServiceClientServiceCollectionExtensions.AddDistributedVapidTokenCache
-- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: AddMemoryVapidTokenCache(IServiceCollection)
-  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddMemoryVapidTokenCache_IServiceCollection_
-  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(IServiceCollection)
-  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddMemoryVapidTokenCache_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache(IServiceCollection)
 - uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache*
   name: AddMemoryVapidTokenCache
@@ -966,19 +1075,19 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache
   nameWithType: PushServiceClientServiceCollectionExtensions.AddMemoryVapidTokenCache
-- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: AddPushServiceClient(IServiceCollection)
-  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_IServiceCollection_
-  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection)
-  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection)
-- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection,Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
+- uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
   name: AddPushServiceClient(IServiceCollection, Action<PushServiceClientOptions>)
-  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_IServiceCollection_Action_Lib_AspNetCore_WebPush_PushServiceClientOptions__
-  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection,Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
+  href: api/Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_PushServiceClientServiceCollectionExtensions_AddPushServiceClient_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Lib_AspNetCore_WebPush_PushServiceClientOptions__
+  commentId: M:Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Lib.AspNetCore.WebPush.PushServiceClientOptions})
   name.vb: AddPushServiceClient(IServiceCollection, Action(Of PushServiceClientOptions))
-  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action<Lib.AspNetCore.WebPush.PushServiceClientOptions>)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action(Of Lib.AspNetCore.WebPush.PushServiceClientOptions))
+  fullName: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Lib.AspNetCore.WebPush.PushServiceClientOptions>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Lib.AspNetCore.WebPush.PushServiceClientOptions))
   nameWithType: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action<PushServiceClientOptions>)
   nameWithType.vb: PushServiceClientServiceCollectionExtensions.AddPushServiceClient(IServiceCollection, Action(Of PushServiceClientOptions))
 - uid: Microsoft.Extensions.DependencyInjection.PushServiceClientServiceCollectionExtensions.AddPushServiceClient*

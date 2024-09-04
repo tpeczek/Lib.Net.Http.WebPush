@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PushServiceOptions
+    <title>Class PushServiceExtensionStartup
    | Lib.Net.Http.WebPush </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PushServiceOptions
+    <meta name="title" content="Class PushServiceExtensionStartup
    | Lib.Net.Http.WebPush ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -60,18 +60,19 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-12">
-            <article class="content wrap" id="_content" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions">
+            <article class="content wrap" id="_content" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup">
   
   
-  <h1 id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions" class="text-break">Class PushServiceOptions
+  <h1 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup" class="text-break">Class PushServiceExtensionStartup
   </h1>
-  <div class="markdown level0 summary"><p>Options for Push Service binding extensions.</p>
+  <div class="markdown level0 summary"><p>Class providing a worker extension startup implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">PushServiceOptions</span></div>
+    <div class="level1"><span class="xref">Microsoft.Azure.Functions.Worker.Core.WorkerExtensionStartup</span></div>
+    <div class="level2"><span class="xref">PushServiceExtensionStartup</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -97,86 +98,43 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Lib.Azure.WebJobs.Extensions.WebPush.html">Lib.Azure.WebJobs.Extensions.WebPush</a></h6>
-  <h6><strong>Assembly</strong>: Lib.Azure.WebJobs.Extensions.WebPush.dll</h6>
-  <h5 id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Lib.Azure.Functions.Worker.Extensions.WebPush.html">Lib.Azure.Functions.Worker.Extensions.WebPush</a></h6>
+  <h6><strong>Assembly</strong>: Lib.Azure.Functions.Worker.Extensions.WebPush.dll</h6>
+  <h5 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PushServiceOptions</code></pre>
+    <pre><code class="lang-csharp hljs">public class PushServiceExtensionStartup : WorkerExtensionStartup</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_PrivateKey_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.PrivateKey*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_PrivateKey" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.PrivateKey">PrivateKey</h4>
-  <div class="markdown level1 summary"><p>The application server private key.</p>
+  <a id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup_Configure_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure*"></a>
+  <h4 id="Lib_Azure_Functions_Worker_Extensions_WebPush_PushServiceExtensionStartup_Configure_Microsoft_Azure_Functions_Worker_IFunctionsWorkerApplicationBuilder_" data-uid="Lib.Azure.Functions.Worker.Extensions.WebPush.PushServiceExtensionStartup.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)">Configure(IFunctionsWorkerApplicationBuilder)</h4>
+  <div class="markdown level1 summary"><p>Performs the startup configuration action for Push Service extension.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PrivateKey { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override void Configure(IFunctionsWorkerApplicationBuilder applicationBuilder)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><span class="xref">Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder</span></td>
+        <td><span class="parametername">applicationBuilder</span></td>
+        <td><p>The <span class="xref">Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder</span> that can be used to configure the worker extension.</p>
+</td>
       </tr>
     </tbody>
   </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_PublicKey_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.PublicKey*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_PublicKey" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.PublicKey">PublicKey</h4>
-  <div class="markdown level1 summary"><p>The application server public key.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PublicKey { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_Subject_" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.Subject*"></a>
-  <h4 id="Lib_Azure_WebJobs_Extensions_WebPush_PushServiceOptions_Subject" data-uid="Lib.Azure.WebJobs.Extensions.WebPush.PushServiceOptions.Subject">Subject</h4>
-  <div class="markdown level1 summary"><p>The contact information for the application server.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Subject { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.Azure.Functions.Worker.Core.WorkerExtensionStartup.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)</span></div>
 </article>
           </div>
         </div>
