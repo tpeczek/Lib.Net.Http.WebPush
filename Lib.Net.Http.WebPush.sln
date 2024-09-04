@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Azure.Functions.Worker.Extensions.WebPush", "src\Lib.Azure.Functions.Worker.Extensions.WebPush\Lib.Azure.Functions.Worker.Extensions.WebPush.csproj", "{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{001A4013-EE58-428A-BD6C-49AC3A0CA6F9} = {0441724F-48F7-4863-BBA6-586E10182605}
 		{D9CF3828-E0F8-4A92-97D3-4B79E9C38F58} = {0441724F-48F7-4863-BBA6-586E10182605}
 		{E0746BE4-61F3-4366-8C7E-99C2350A0DD3} = {AFD9AC51-E923-49DF-B000-721816ABDE37}
+		{FF54B26A-8E32-4D2F-B91E-C8BAAFE9148D} = {0441724F-48F7-4863-BBA6-586E10182605}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88535C7E-5564-4AC1-A41B-18DD05637943}
