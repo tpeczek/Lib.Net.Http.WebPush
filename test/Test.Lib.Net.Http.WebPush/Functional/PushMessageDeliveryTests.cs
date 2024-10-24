@@ -11,8 +11,10 @@ namespace Test.Lib.Net.Http.WebPush.Functional
     public class PushMessageDeliveryTests : IClassFixture<FakePushServiceApplicationFactory>
     {
         #region Fields
-        private const string CREATED_ENDPOINT = "http://localhost/push-created";
-		private const string RETRY_AFTER_ONCE_ENDPOINT = "http://localhost/push-retry-after-once";
+        private const string RFC_8030_CREATED_ENDPOINT = "http://localhost/push-rfc-8030-created";
+        private const string MOZILLA_AUTOPUSH_DELIVERED_ENDPOINT = "http://localhost/mozilla-autopush-delivered";
+        private const string MOZILLA_AUTOPUSH_STORED_ENDPOINT = "http://localhost/mozilla-autopush-stored";
+        private const string RETRY_AFTER_ONCE_ENDPOINT = "http://localhost/push-retry-after-once";
 		private const string RETRY_AFTER_ALWAYS_ENDPOINT = "http://localhost/push-retry-after-always";
 		private const string CLIENT_ERROR_ENDPOINT = "http://localhost/push-client-error";
 
@@ -56,10 +58,13 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 		#endregion
 
 		#region Tests
-		[Fact]
-		public async Task PushService_NoError_DeliversPushMessage()
+		[Theory]
+		[InlineData(RFC_8030_CREATED_ENDPOINT)]
+        [InlineData(MOZILLA_AUTOPUSH_DELIVERED_ENDPOINT)]
+        [InlineData(MOZILLA_AUTOPUSH_STORED_ENDPOINT)]
+        public async Task PushService_NoError_DeliversPushMessage(string endpoint)
 		{
-			_pushSubscription.Endpoint = CREATED_ENDPOINT;
+			_pushSubscription.Endpoint = endpoint;
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
@@ -217,8 +222,8 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 					{ "auth", PUSH_SUBSCRIPTION_AUTH_KEY },
 					{ "p256dh", PUSH_SUBSCRIPTION_P256DH_KEY }
 				},
-				Endpoint = CREATED_ENDPOINT
-			};
+				Endpoint = RFC_8030_CREATED_ENDPOINT
+            };
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
@@ -242,8 +247,8 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 					{ "AUTH", PUSH_SUBSCRIPTION_AUTH_KEY },
 					{ "P256DH", PUSH_SUBSCRIPTION_P256DH_KEY }
 				},
-				Endpoint = CREATED_ENDPOINT
-			};
+				Endpoint = RFC_8030_CREATED_ENDPOINT
+            };
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
@@ -267,8 +272,8 @@ namespace Test.Lib.Net.Http.WebPush.Functional
 					{ "AuTh", PUSH_SUBSCRIPTION_AUTH_KEY },
 					{ "P256dH", PUSH_SUBSCRIPTION_P256DH_KEY }
 				},
-				Endpoint = CREATED_ENDPOINT
-			};
+				Endpoint = RFC_8030_CREATED_ENDPOINT
+            };
 
 			PushMessage pushMessage = new PushMessage(WALRUS_CONTENT);
 
