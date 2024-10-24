@@ -1,3 +1,7 @@
+## Lib.Net.Http.WebPush 3.3.0
+### Additions and Changes
+- Added support for Mozilla Autopush Server return codes
+
 ## Lib.Net.Http.WebPush 3.2.1
 ### Bug Fixes
 - Fix for client keys casing and validation.
