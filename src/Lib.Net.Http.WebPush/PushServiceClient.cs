@@ -389,7 +389,7 @@ namespace Lib.Net.Http.WebPush
 
         private static async Task HandlePushMessageDeliveryRequestResponse(HttpResponseMessage pushMessageDeliveryRequestResponse, PushSubscription subscription)
         {
-            if (pushMessageDeliveryRequestResponse.StatusCode == HttpStatusCode.Created)
+            if (PushMessageDeliverySuccessful(pushMessageDeliveryRequestResponse.StatusCode))
             {
                 return;
             }
@@ -401,6 +401,19 @@ namespace Lib.Net.Http.WebPush
             string content = await pushMessageDeliveryRequestResponse.Content.ReadAsStringAsync();
 
             throw new PushServiceClientException(reason, pushMessageDeliveryRequestResponse.StatusCode, pushMessageDeliveryRequestResponse.Headers, content, subscription);
+        }
+
+        private static bool PushMessageDeliverySuccessful(HttpStatusCode statusCode)
+        {
+            switch (statusCode)
+            {
+                case HttpStatusCode.Created:    // RFC 8030
+                case HttpStatusCode.OK:         // Mozilla Autopush Server (Delivered to node client is connected to)
+                case HttpStatusCode.Accepted:   // Mozilla Autopush Server (Stored for delivery to client at a later time)
+                    return true;
+                default:
+                    return false;
+            }
         }
         #endregion
     }

@@ -24,9 +24,23 @@ namespace Test.Lib.Net.Http.WebPush.Functional.Infrastructure
             app.UseRouting()
                 .UseEndpoints(endpoints =>
                 {
-                    endpoints.MapPost("/push-created", context =>
+                    endpoints.MapPost("/push-rfc-8030-created", context =>
                     {
                         context.Response.StatusCode = StatusCodes.Status201Created;
+
+                        return Task.CompletedTask;
+                    });
+
+                    endpoints.MapPost("/mozilla-autopush-delivered", context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status200OK;
+
+                        return Task.CompletedTask;
+                    });
+
+                    endpoints.MapPost("/mozilla-autopush-stored", context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status202Accepted;
 
                         return Task.CompletedTask;
                     });
