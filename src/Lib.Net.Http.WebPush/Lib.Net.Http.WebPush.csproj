@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>Lib.Net.Http.WebPush is a library which provides a Web Push Protocol based client for Push Service.</Description>
     <Copyright>Copyright © 2018 - 2025 Tomasz Pęczek</Copyright>
-    <VersionPrefix>3.3.0</VersionPrefix>
+    <VersionPrefix>3.3.1</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
     <TargetFrameworks>net451;net461;netstandard2.0;net5.0;net6.0</TargetFrameworks>
     <AssemblyTitle>Lib.Net.Http.WebPush</AssemblyTitle>

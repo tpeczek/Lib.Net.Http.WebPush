@@ -1,3 +1,7 @@
+## Lib.Net.Http.WebPush 3.3.1
+### Bug Fixes
+- Fix for `RequestPushMessageDeliveryAsync` unable to write content to request stream for empty content.
+
 ## Lib.Net.Http.WebPush 3.3.0
 ### Additions and Changes
 - Added support for Mozilla Autopush Server return codes
