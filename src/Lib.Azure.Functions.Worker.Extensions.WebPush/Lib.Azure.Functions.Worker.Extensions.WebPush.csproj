@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>This package contains Azure Functions isolated worker model extensions for Web Push Protocol based client for Push Service.</Description>
     <Tags>Azure AzureFunctions IsolatedWorker WebPush</Tags>
-    <Copyright>Copyright © 2024 - 2025 Tomasz Pęczek</Copyright>
+    <Copyright>Copyright © 2024 - 2026 Tomasz Pęczek</Copyright>
     <VersionPrefix>1.0.1</VersionPrefix>
     <Authors>Tomasz Pęczek</Authors>
     <TargetFramework>net6.0</TargetFramework>
